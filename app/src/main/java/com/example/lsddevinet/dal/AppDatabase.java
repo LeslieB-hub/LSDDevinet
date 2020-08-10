@@ -13,7 +13,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.lsddevinet.model.Categorie;
 import com.example.lsddevinet.model.Mot;
 
-@Database(entities = {Mot.class, Categorie.class}, version = 1)
+@Database(entities = {Mot.class, Categorie.class}, exportSchema = false, version = 1)
 public abstract class AppDatabase extends RoomDatabase{
     //pattern singleton
     private static AppDatabase INSTANCE_CNX = null;
