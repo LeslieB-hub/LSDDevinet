@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 
 
 @Entity
-public class Mot implements Parcelable {
+public class Mot implements Parcelable{
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -16,6 +16,19 @@ public class Mot implements Parcelable {
     private String mot;
     private String proposition;
     private int idCategorie;
+
+    public Mot(int id, String img, String mot, String proposition, int id_categorie) {
+        this.id = id;
+        this.img = img;
+        this.mot = mot;
+        this.proposition = proposition;
+        this.idCategorie = id_categorie;
+    }
+
+    public Mot(){
+
+    }
+
 
     protected Mot(Parcel in) {
         id = in.readInt();
@@ -69,20 +82,23 @@ public class Mot implements Parcelable {
         this.proposition = proposition;
     }
 
-    public int getId_categorie() {
+    public int getIdCategorie() {
         return idCategorie;
     }
 
-    public void setId_categorie(int id_categorie) {
+    public void setIdCategorie(int id_categorie) {
         this.idCategorie = id_categorie;
     }
 
-    public Mot(int id, String img, String mot, String proposition, int id_categorie) {
-        this.id = id;
-        this.img = img;
-        this.mot = mot;
-        this.proposition = proposition;
-        this.idCategorie = id_categorie;
+    @Override
+    public String toString() {
+        return "Mot{" +
+                "id=" + id +
+                ", img='" + img + '\'' +
+                ", mot='" + mot + '\'' +
+                ", proposition='" + proposition + '\'' +
+                ", idCategorie=" + idCategorie +
+                '}';
     }
 
     @Override

@@ -18,6 +18,10 @@ public class Categorie implements Parcelable {
         this.categorie = categorie;
     }
 
+    public Categorie(){
+
+    }
+
     protected Categorie(Parcel in) {
         id = in.readInt();
         categorie = in.readString();
@@ -49,6 +53,14 @@ public class Categorie implements Parcelable {
 
     public void setCategorie(String categorie) {
         this.categorie = categorie;
+    }
+
+    @Override
+    public String toString() {
+        return "Categorie{" +
+                "id=" + id +
+                ", categorie='" + categorie + '\'' +
+                '}';
     }
 
     @Override
