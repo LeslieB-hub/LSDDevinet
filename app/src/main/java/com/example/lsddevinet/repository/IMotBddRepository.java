@@ -3,7 +3,6 @@ package com.example.lsddevinet.repository;
 import androidx.lifecycle.LiveData;
 
 import com.example.lsddevinet.model.Mot;
-import com.example.lsddevinet.model.MotAvecCategorie;
 
 import java.util.List;
 

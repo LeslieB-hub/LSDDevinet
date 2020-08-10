@@ -4,10 +4,18 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 
-@Entity
+
+@Entity(foreignKeys =
+        @ForeignKey(
+        entity = Categorie.class,
+        parentColumns = "id",
+        childColumns = "idCategorie",
+        onDelete = ForeignKey.NO_ACTION
+        ))
 public class Mot implements Parcelable{
 
     @PrimaryKey(autoGenerate = true)

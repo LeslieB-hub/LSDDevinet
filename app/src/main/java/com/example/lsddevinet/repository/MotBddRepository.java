@@ -6,10 +6,8 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 import com.example.lsddevinet.dal.AppDatabase;
-import com.example.lsddevinet.dal.CategorieDao;
 import com.example.lsddevinet.dal.MotDao;
 import com.example.lsddevinet.model.Mot;
-import com.example.lsddevinet.model.MotAvecCategorie;
 
 import java.util.List;
 

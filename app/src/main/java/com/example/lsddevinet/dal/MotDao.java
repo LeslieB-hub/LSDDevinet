@@ -5,11 +5,9 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.example.lsddevinet.model.Mot;
-import com.example.lsddevinet.model.MotAvecCategorie;
 
 import java.util.List;
 
@@ -23,7 +21,6 @@ public interface MotDao {
      * Selectionne
      * @return tous les mots de la bdd
      */
-    @Transaction
     @Query("SELECT * FROM Mot")
     LiveData<List<Mot>> getAllMots();
 
