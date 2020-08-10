@@ -32,19 +32,19 @@ dependencies {
 
 }
 
-//dépendance pour room (gestion de la bdd)
+// Dependencies for room
 dependencies {
-
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     def room_version = "2.2.5"
 
     implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
-
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 }
 
+// Dependencies for stetho
 dependencies {
 
-    implementation 'com.facebook.stetho:stetho:1.5.1'
 
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation "com.facebook.stetho:stetho:1.5.1"
 }
