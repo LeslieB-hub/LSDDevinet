@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 
@@ -18,6 +19,7 @@ public class Categorie implements Parcelable {
         this.categorie = categorie;
     }
 
+    @Ignore
     public Categorie(){
 
     }
