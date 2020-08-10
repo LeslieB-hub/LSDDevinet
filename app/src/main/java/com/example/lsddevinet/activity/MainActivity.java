@@ -2,6 +2,7 @@ package com.example.lsddevinet.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.lsddevinet.R;
+import com.example.lsddevinet.ViewModel.MotViewModel;
 import com.facebook.stetho.Stetho;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         Stetho.initializeWithDefaults(this);
         setContentView(R.layout.activity_main);
 
+        MotViewModel motVM = ViewModelProviders.of(this).get(MotViewModel.class);
     }
 
     /**
