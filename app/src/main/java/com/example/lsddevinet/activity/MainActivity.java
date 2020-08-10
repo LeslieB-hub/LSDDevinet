@@ -8,9 +8,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.lsddevinet.R;
 import com.example.lsddevinet.ViewModel.MotViewModel;
+import com.example.lsddevinet.model.Categorie;
+import com.example.lsddevinet.model.Mot;
+import com.example.lsddevinet.repository.CategorieBddRepository;
+import com.example.lsddevinet.repository.ICategorieRepository;
+import com.example.lsddevinet.repository.IMotBddRepository;
+import com.example.lsddevinet.repository.MotBddRepository;
 import com.facebook.stetho.Stetho;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         MotViewModel motVM = ViewModelProviders.of(this).get(MotViewModel.class);
+
+//        ICategorieRepository repoCategorie = new CategorieBddRepository(this);
+//        IMotBddRepository repoMot = new MotBddRepository(this);
+//        Categorie categorie = new Categorie(4,"4 lettres");
+//        repoCategorie.insert(categorie);
+//        repoMot.insert(new Mot(0, "kiwi.jpeg", "kiwi", "", 4 ));
     }
 
     /**
@@ -34,6 +47,18 @@ public class MainActivity extends AppCompatActivity {
         //on décompresse le xml du menu
         getMenuInflater().inflate(R.menu.mon_menu, menu);
         return true;
+    }
+
+    public void onClickJouer(View view) {
+    }
+
+    public void onClickResultat(View view) {
+    }
+
+    public void onClickProposition(View view) {
+    }
+
+    public void onClickQuitter(View view) {
     }
 
 //    /**
