@@ -42,7 +42,7 @@ public class MotBddRepository implements IMotBddRepository {
     }
 
     @Override
-    public LiveData<List<MotAvecCategorie>> getAllMots() {
+    public LiveData<List<Mot>> getAllMots() {
         return motDao.getAllMots();
     }
 

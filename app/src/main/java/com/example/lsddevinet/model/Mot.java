@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 
@@ -18,17 +17,12 @@ public class Mot implements Parcelable{
     private String proposition;
     private int idCategorie;
 
-    public Mot(int id, String img, String mot, String proposition, int id_categorie) {
+    public Mot(int id, String img, String mot, String proposition, int idCategorie) {
         this.id = id;
         this.img = img;
         this.mot = mot;
         this.proposition = proposition;
-        this.idCategorie = id_categorie;
-    }
-
-    @Ignore
-    public Mot(){
-
+        this.idCategorie = idCategorie;
     }
 
 
@@ -88,8 +82,8 @@ public class Mot implements Parcelable{
         return idCategorie;
     }
 
-    public void setIdCategorie(int id_categorie) {
-        this.idCategorie = id_categorie;
+    public void setIdCategorie(int idCategorie) {
+        this.idCategorie = idCategorie;
     }
 
     @Override

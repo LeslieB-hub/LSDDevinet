@@ -25,7 +25,7 @@ public interface MotDao {
      */
     @Transaction
     @Query("SELECT * FROM Mot")
-    LiveData<List<MotAvecCategorie>> getAllMots();
+    LiveData<List<Mot>> getAllMots();
 
 
     /**

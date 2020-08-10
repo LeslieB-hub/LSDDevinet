@@ -19,10 +19,6 @@ public class Categorie implements Parcelable {
         this.categorie = categorie;
     }
 
-    @Ignore
-    public Categorie(){
-
-    }
 
     protected Categorie(Parcel in) {
         id = in.readInt();

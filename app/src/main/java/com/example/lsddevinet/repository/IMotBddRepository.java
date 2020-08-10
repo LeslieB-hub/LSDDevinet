@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface IMotBddRepository {
     void insert(Mot mot);
-    LiveData<List<MotAvecCategorie>> getAllMots();
+    LiveData<List<Mot>> getAllMots();
     LiveData<List<Mot>> getMotByCategorie(int idCategorie);
     Mot get(int id);
     void update(Mot mot);
