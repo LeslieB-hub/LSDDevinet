@@ -5,9 +5,11 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.example.lsddevinet.model.Mot;
+import com.example.lsddevinet.model.MotAvecCategorie;
 
 import java.util.List;
 
@@ -21,15 +23,17 @@ public interface MotsDao {
      * Selectionne
      * @return tous les mots de la bdd
      */
+    @Transaction
     @Query("SELECT * FROM Mot")
-    LiveData<List<Mot>> getAllMots();
+    LiveData<List<MotAvecCategorie>> getAllMots();
+
 
     /**
      * Selectionne
      * @param idCategorie
      * @return tous les mots de la bdd d'une catégorie
      */
-    @Query("SELECT * FROM Mot WHERE id_categorie = :idCategorie")
+    @Query("SELECT * FROM Mot WHERE idCategorie = :idCategorie")
     LiveData<List<Mot>> getMotByCategorie(int idCategorie);
 
     /**

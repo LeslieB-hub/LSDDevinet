@@ -15,14 +15,14 @@ public class Mot implements Parcelable {
     private String img;
     private String mot;
     private String proposition;
-    private int id_categorie;
+    private int idCategorie;
 
     protected Mot(Parcel in) {
         id = in.readInt();
         img = in.readString();
         mot = in.readString();
         proposition = in.readString();
-        id_categorie = in.readInt();
+        idCategorie = in.readInt();
     }
 
     public static final Creator<Mot> CREATOR = new Creator<Mot>() {
@@ -70,11 +70,11 @@ public class Mot implements Parcelable {
     }
 
     public int getId_categorie() {
-        return id_categorie;
+        return idCategorie;
     }
 
     public void setId_categorie(int id_categorie) {
-        this.id_categorie = id_categorie;
+        this.idCategorie = id_categorie;
     }
 
     public Mot(int id, String img, String mot, String proposition, int id_categorie) {
@@ -82,7 +82,7 @@ public class Mot implements Parcelable {
         this.img = img;
         this.mot = mot;
         this.proposition = proposition;
-        this.id_categorie = id_categorie;
+        this.idCategorie = id_categorie;
     }
 
     @Override
@@ -96,6 +96,6 @@ public class Mot implements Parcelable {
         parcel.writeString(img);
         parcel.writeString(mot);
         parcel.writeString(proposition);
-        parcel.writeInt(id_categorie);
+        parcel.writeInt(idCategorie);
     }
 }
