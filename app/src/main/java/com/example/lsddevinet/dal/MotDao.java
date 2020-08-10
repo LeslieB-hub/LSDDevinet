@@ -14,7 +14,7 @@ import com.example.lsddevinet.model.MotAvecCategorie;
 import java.util.List;
 
 @Dao
-public interface MotsDao {
+public interface MotDao {
 
     @Insert
     void insert(Mot mot);

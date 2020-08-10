@@ -12,7 +12,7 @@ import com.example.lsddevinet.model.Categorie;
 import java.util.List;
 
 @Dao
-public interface CategoriesDao {
+public interface CategorieDao {
     @Insert
     void insert(Categorie categorie);
 
