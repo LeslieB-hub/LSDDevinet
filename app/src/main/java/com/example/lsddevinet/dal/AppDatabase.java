@@ -18,6 +18,10 @@ public abstract class AppDatabase extends RoomDatabase{
     //pattern singleton
     private static AppDatabase INSTANCE_CNX = null;
 
+    //Permet de fournir une instance de la dao utilisateur aux couches supérieures.
+    public abstract Categorie getCategorieDao();
+    public abstract Mot getMotDao();
+
     public static AppDatabase getInstance(Context context){
 
         if (INSTANCE_CNX == null){
