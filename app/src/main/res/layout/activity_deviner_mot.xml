@@ -17,48 +17,160 @@
         android:layout_margin="40dp"
         />
 
+
     <EditText
-        android:id="@+id/mot_proposition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/et_lettre1"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
         app:layout_constraintTop_toBottomOf="@id/image"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/et_lettre2"
         android:layout_marginTop="50dp"
-        android:hint="devinez le mot"
+        android:layout_marginLeft="25dp"
+        android:hint="X"
         />
 
-
-    <TextView
-        android:id="@+id/mot_a_deviner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/mot_proposition"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <EditText
+        android:id="@+id/et_lettre2"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre1"
         android:layout_marginTop="50dp"
-        android:hint="mot"
+        android:hint="X"
         />
 
+    <EditText
+        android:id="@+id/et_lettre3"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre2"
+        android:layout_marginTop="50dp"
+        android:hint="X"
+        />
+    <EditText
+        android:id="@+id/et_lettre4"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre3"
+        android:layout_marginTop="50dp"
+        android:hint="X"
+        />
+    <EditText
+        android:id="@+id/et_lettre5"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre4"
+        android:layout_marginTop="50dp"
+        android:hint="X"
+        android:visibility="invisible"
+        />
+
+    <EditText
+        android:id="@+id/et_lettre6"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre5"
+        android:layout_marginTop="50dp"
+        android:hint="X"
+        android:visibility="invisible"
+        />
+    <EditText
+        android:id="@+id/et_lettre7"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre6"
+        android:layout_marginTop="50dp"
+        android:hint="X"
+        android:visibility="invisible"
+        />
+    <EditText
+        android:id="@+id/et_lettre8"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre7"
+        android:layout_marginTop="50dp"
+        android:hint="X"
+        android:visibility="invisible"
+        />
+    <EditText
+        android:id="@+id/et_lettre9"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre8"
+        android:layout_marginTop="50dp"
+        android:hint="X"
+        android:visibility="invisible"
+        />
+    <EditText
+        android:id="@+id/et_lettre10"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre9"
+        android:layout_marginTop="50dp"
+        android:hint="X"
+        android:visibility="invisible"
+        />
+    <EditText
+        android:id="@+id/et_lettre11"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre10"
+        android:layout_marginTop="50dp"
+        android:hint="X"
+        android:visibility="invisible"
+        />
+    <EditText
+        android:id="@+id/et_lettre12"
+        android:layout_width="25dp"
+        android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre11"
+        android:layout_marginTop="50dp"
+        android:hint="X"
+        android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_gravity="right|center_vertical"
+        android:background="@drawable/ic_baseline_clear_24"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toRightOf="@+id/et_lettre12"
+        android:layout_marginTop="50dp"
+        android:onClick="onClickClearEditTexts"/>
 
 
     <Button
         android:id="@+id/btn_1"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_7"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="100dp"
-        android:layout_marginLeft="65dp"
+        android:layout_marginLeft="70dp"
+        android:onClick="onClickBtn1"
 
         />
     <Button
-        android:id="@+id/btn_2"
+        android:id="@+id/btn_8"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_2"
         app:layout_constraintLeft_toRightOf="@+id/btn_1"
         android:layout_marginBottom="100dp"
+        android:visibility="invisible"
+        android:onClick="onClickBtn8"
 
         />
 
@@ -66,69 +178,91 @@
         android:id="@+id/btn_3"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/btn_2"
+        app:layout_constraintLeft_toRightOf="@+id/btn_8"
+        app:layout_constraintTop_toBottomOf="@id/btn_9"
         android:layout_marginBottom="100dp"
+        android:onClick="onClickBtn3"
 
         />
     <Button
-        android:id="@+id/btn_4"
+        android:id="@+id/btn_10"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_4"
         app:layout_constraintLeft_toRightOf="@+id/btn_3"
         android:layout_marginBottom="100dp"
+        android:visibility="invisible"
+        android:onClick="onClickBtn10"
 
         />
     <Button
         android:id="@+id/btn_5"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/btn_4"
+        app:layout_constraintTop_toBottomOf="@id/btn_11"
+        app:layout_constraintLeft_toRightOf="@+id/btn_10"
         android:layout_marginBottom="100dp"
+        android:visibility="invisible"
+        android:onClick="onClickBtn5"
 
         />
     <Button
-        android:id="@+id/btn_6"
+        android:id="@+id/btn_12"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_6"
         app:layout_constraintLeft_toRightOf="@+id/btn_5"
         android:layout_marginBottom="100dp"
+        android:visibility="invisible"
+        android:onClick="onClickBtn12"
         />
 
     <Button
         android:id="@+id/btn_7"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/et_lettre2"
         app:layout_constraintBottom_toTopOf="@id/btn_1"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="65dp"/>
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="70dp"
+        android:visibility="invisible"
+        android:onClick="onClickBtn7"
+        />
 
     <Button
-        android:id="@+id/btn_8"
+        android:id="@+id/btn_2"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        app:layout_constraintBottom_toTopOf="@id/btn_2"
+        app:layout_constraintTop_toBottomOf="@id/et_lettre1"
+        app:layout_constraintBottom_toTopOf="@id/btn_8"
         app:layout_constraintLeft_toRightOf="@id/btn_7"
+        android:layout_marginTop="25dp"
+        android:onClick="onClickBtn2"
         />
 
     <Button
         android:id="@+id/btn_9"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        app:layout_constraintLeft_toRightOf="@id/btn_8"
+        app:layout_constraintTop_toBottomOf="@id/et_lettre1"
+        app:layout_constraintLeft_toRightOf="@id/btn_2"
         app:layout_constraintBottom_toTopOf="@id/btn_3"
+        android:layout_marginTop="25dp"
+        android:visibility="invisible"
+        android:onClick="onClickBtn9"
 
         />
 
     <Button
-        android:id="@+id/btn_10"
+        android:id="@+id/btn_4"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/et_lettre1"
         app:layout_constraintLeft_toRightOf="@id/btn_9"
-        app:layout_constraintBottom_toTopOf="@id/btn_4"
+        app:layout_constraintBottom_toTopOf="@id/btn_10"
+        android:layout_marginTop="25dp"
+        android:onClick="onClickBtn4"
 
         />
 
@@ -136,18 +270,54 @@
         android:id="@+id/btn_11"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/et_lettre1"
         app:layout_constraintLeft_toRightOf="@id/btn_10"
         app:layout_constraintBottom_toTopOf="@id/btn_5"
+        android:layout_marginTop="25dp"
+        android:visibility="invisible"
+        android:onClick="onClickBtn11"
 
         />
 
     <Button
-        android:id="@+id/btn_12"
+        android:id="@+id/btn_6"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        app:layout_constraintTop_toBottomOf="@id/et_lettre1"
         app:layout_constraintLeft_toRightOf="@id/btn_11"
-        app:layout_constraintBottom_toTopOf="@id/btn_6"
+        app:layout_constraintBottom_toTopOf="@id/btn_12"
+        android:layout_marginTop="25dp"
+        android:visibility="invisible"
+        android:onClick="onClickBtn6"
 
+        />
+
+    <Button
+        android:id="@+id/btn_valide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_1"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="25dp"
+        android:text="Valider"
+        android:onClick="onClickValider"
+        />
+
+    <Button
+        android:id="@+id/btn_suivant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_1"
+        android:layout_marginBottom="100dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="25dp"
+        android:text="Suivant"
+        android:onClick="onClickSuivant"
         />
 
 
