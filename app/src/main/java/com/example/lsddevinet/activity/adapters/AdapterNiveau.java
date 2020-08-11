@@ -3,30 +3,36 @@ package com.example.lsddevinet.activity.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lsddevinet.R;
+import com.example.lsddevinet.model.Categorie;
+
+import java.util.List;
 
 public class AdapterNiveau extends RecyclerView.Adapter<AdapterNiveau.ViewHolder> {
 
-    private String[] mDataset;
+    private List<Categorie> categories;
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView tvNiveau;
+        public ProgressBar progressBar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNiveau = itemView.findViewById(R.id.tv_niveau);
+            progressBar = itemView.findViewById(R.id.pb_progression);
         }
     }
 
-    public AdapterNiveau(String[] myDataset){
-        mDataset = myDataset;
+    public AdapterNiveau(List<Categorie> myDataset){
+        categories = myDataset;
     }
 
     @NonNull
@@ -40,11 +46,12 @@ public class AdapterNiveau extends RecyclerView.Adapter<AdapterNiveau.ViewHolder
     //modifit le contenu de la vue en remplissant une ligne de la vu
     @Override
     public void onBindViewHolder(@NonNull AdapterNiveau.ViewHolder holder, int position) {
-        holder.tvNiveau.setText(mDataset[position]);
+        holder.tvNiveau.setText("Niveau "+ categories.get(position).getId()+" - "+ categories.get(position).getCategorie());
+        holder.progressBar.setProgress(50);
     }
 
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return categories.size();
     }
 }
