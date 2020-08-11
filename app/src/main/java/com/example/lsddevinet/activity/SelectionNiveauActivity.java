@@ -91,7 +91,8 @@ public class SelectionNiveauActivity extends AppCompatActivity {
 //                startActivity(intentAPropos);
 //                return true;
             case R.id.action_PagePrecedente:
-
+                Intent intentMain = new Intent(this, MainActivity.class);
+                startActivity(intentMain);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

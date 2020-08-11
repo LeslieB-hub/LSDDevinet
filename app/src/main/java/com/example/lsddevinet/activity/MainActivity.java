@@ -37,6 +37,20 @@ public class MainActivity extends AppCompatActivity {
 //        repoMot.insert(new Mot(0, "kiwi.jpeg", "kiwi", "", 4 ));
     }
 
+    public void onClickJouer(View view) {
+        Intent intentNiveau = new Intent(this, SelectionNiveauActivity.class);
+        startActivity(intentNiveau);
+    }
+
+    public void onClickResultat(View view) {
+    }
+
+    public void onClickProposition(View view) {
+    }
+
+    public void onClickQuitter(View view) {
+    }
+
     /**
      * Menu
      * @param menu
@@ -49,17 +63,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void onClickJouer(View view) {
-    }
-
-    public void onClickResultat(View view) {
-    }
-
-    public void onClickProposition(View view) {
-    }
-
-    public void onClickQuitter(View view) {
-    }
 
 //    /**
 //     * Définition des actions
