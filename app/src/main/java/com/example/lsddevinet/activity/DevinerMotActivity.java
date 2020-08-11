@@ -35,16 +35,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         Categorie categorie = intent.getParcelableExtra("Categorie");
         int id = categorie.getId();
 
-
-
-        TextView idCat = findViewById(R.id.id_cat);
-        idCat.setText(String.valueOf(id));
-
         MotViewModel motVM = ViewModelProviders.of(this).get(MotViewModel.class);
-
-
-
-
 
         LiveData<List<Mot>> observateur = motVM.getMotByCategorie(id);
 
@@ -52,11 +43,12 @@ public class DevinerMotActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Mot> mots ) {
                 Mot premierMot = mots.get(0);
-                String imgNom = premierMot.getImg();
-                String motNom = premierMot.getMot();
-                Uri imgUri=Uri.parse("res/drawable/" + imgNom);
-                ((ImageView) DevinerMotActivity.this.findViewById(R.id.image)).setImageURI(imgUri);;
-                ((TextView) DevinerMotActivity.this.findViewById(R.id.mot_a_deviner)).setText(motNom);;
+                String mot = premierMot.getMot();
+
+                Uri imgUri = Uri.parse("android.resource://" + getPackageName() + "/drawable/" + mot);
+
+                ((ImageView) DevinerMotActivity.this.findViewById(R.id.image)).setImageURI(imgUri);
+                ((TextView) DevinerMotActivity.this.findViewById(R.id.mot_a_deviner)).setText(mot);
 
                 Toast.makeText(DevinerMotActivity.this, "Test" + premierMot, Toast.LENGTH_LONG).show();
             }
