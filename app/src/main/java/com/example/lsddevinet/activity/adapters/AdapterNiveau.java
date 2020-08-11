@@ -17,9 +17,10 @@ import java.util.List;
 public class AdapterNiveau extends RecyclerView.Adapter<AdapterNiveau.ViewHolder> {
 
     private List<Categorie> categories;
+    private OnClicSurItem action;
 
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView tvNiveau;
         public ProgressBar progressBar;
@@ -28,11 +29,30 @@ public class AdapterNiveau extends RecyclerView.Adapter<AdapterNiveau.ViewHolder
             super(itemView);
             tvNiveau = itemView.findViewById(R.id.tv_niveau);
             progressBar = itemView.findViewById(R.id.pb_progression);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            action.onInteraction(categories.get(ViewHolder.this.getAdapterPosition()));
         }
     }
 
-    public AdapterNiveau(List<Categorie> myDataset){
+    /**
+     * Interface implémentée par l'activité
+     * @param <T>
+     */
+    public interface OnClicSurItem<T>{
+        void onInteraction(T info);
+    }
+
+    /**
+     * Constructeur qui attend les données
+     * @param myDataset
+     */
+    public AdapterNiveau(List<Categorie> myDataset, OnClicSurItem activite){
         categories = myDataset;
+        action = activite;
     }
 
     @NonNull

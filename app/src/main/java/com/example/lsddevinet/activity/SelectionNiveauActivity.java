@@ -2,6 +2,7 @@ package com.example.lsddevinet.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.lsddevinet.R;
 import com.example.lsddevinet.ViewModel.CategorieViewModel;
@@ -21,7 +23,7 @@ import com.example.lsddevinet.model.Categorie;
 
 import java.util.List;
 
-public class SelectionNiveauActivity extends AppCompatActivity {
+public class SelectionNiveauActivity extends AppCompatActivity{
 
     RecyclerView recyclerView = null;
 
@@ -29,14 +31,11 @@ public class SelectionNiveauActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection_niveau);
+        //récupérer le recycleview
         recyclerView = findViewById(R.id.recyclerview_niveau);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
+        //optimise le chargement quand le rv ne change pas de taille
         recyclerView.setHasFixedSize(true);
+
         RecyclerView.LayoutManager rvlm = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(rvlm);
 
@@ -47,10 +46,28 @@ public class SelectionNiveauActivity extends AppCompatActivity {
         observateur.observe(this, new Observer<List<Categorie>>() {
             @Override
             public void onChanged(List<Categorie> categories) {
-                AdapterNiveau adapterNiveau = new AdapterNiveau(categories);
+                //création de l'adapter
+                AdapterNiveau adapterNiveau = new AdapterNiveau(categories, new AdapterNiveau.OnClicSurItem<Categorie>() {
+                    @Override
+                    public void onInteraction(Categorie info) {
+                        Toast.makeText(SelectionNiveauActivity.this, "Catégorie"+ info, Toast.LENGTH_SHORT).show();
+                        Intent intentJouer = new Intent(SelectionNiveauActivity.this, DevinerMotActivity.class);
+                        intentJouer.putExtra("Categorie", info);
+                        startActivity(intentJouer);
+                    }
+                });
+                //lié l'adapter au recycleview
                 recyclerView.setAdapter(adapterNiveau);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+
 
     }
 
@@ -58,8 +75,11 @@ public class SelectionNiveauActivity extends AppCompatActivity {
 
     }
 
-    public void onClickProgression(View view){
-        View parentRow = (View) view.getParent();
+    public void onClickProgression(CardView view){
+/*        View parentRow = (View) view.getParent();
+        RecyclerView rv = (RecyclerView) parentRow.getParent();
+        final int position = rv.getChildLayoutPosition(parentRow);
+        Toast.makeText(SelectionNiveauActivity.this," d "+ position, Toast.LENGTH_LONG).show();*/
 
     }
 
@@ -99,4 +119,5 @@ public class SelectionNiveauActivity extends AppCompatActivity {
 
         }
     }
+
 }
