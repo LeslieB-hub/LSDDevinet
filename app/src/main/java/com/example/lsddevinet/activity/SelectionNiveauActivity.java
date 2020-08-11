@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.lsddevinet.R;
@@ -26,11 +27,15 @@ import java.util.List;
 public class SelectionNiveauActivity extends AppCompatActivity{
 
     RecyclerView recyclerView = null;
+    ProgressBar progressBar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection_niveau);
+
+        progressBar = findViewById(R.id.pb_progression);
+
         //récupérer le recycleview
         recyclerView = findViewById(R.id.recyclerview_niveau);
         //optimise le chargement quand le rv ne change pas de taille
@@ -56,6 +61,7 @@ public class SelectionNiveauActivity extends AppCompatActivity{
                         startActivity(intentJouer);
                     }
                 });
+
                 //lié l'adapter au recycleview
                 recyclerView.setAdapter(adapterNiveau);
             }
@@ -75,13 +81,13 @@ public class SelectionNiveauActivity extends AppCompatActivity{
 
     }
 
-    public void onClickProgression(CardView view){
-/*        View parentRow = (View) view.getParent();
+/*    public void onClickProgression(CardView view){
+        View parentRow = (View) view.getParent();
         RecyclerView rv = (RecyclerView) parentRow.getParent();
         final int position = rv.getChildLayoutPosition(parentRow);
-        Toast.makeText(SelectionNiveauActivity.this," d "+ position, Toast.LENGTH_LONG).show();*/
+        Toast.makeText(SelectionNiveauActivity.this," d "+ position, Toast.LENGTH_LONG).show();
 
-    }
+    }*/
 
     /**
      * Menu
@@ -92,6 +98,7 @@ public class SelectionNiveauActivity extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         //on décompresse le xml du menu
         getMenuInflater().inflate(R.menu.mon_menu, menu);
+        menu.findItem(R.id.action_Accueil).setVisible(false);
         return true;
     }
 

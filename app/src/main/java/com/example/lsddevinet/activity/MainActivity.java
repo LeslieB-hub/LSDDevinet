@@ -60,21 +60,23 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         //on décompresse le xml du menu
         getMenuInflater().inflate(R.menu.mon_menu, menu);
+        menu.findItem(R.id.action_Accueil).setVisible(false);
+        menu.findItem(R.id.action_PagePrecedente).setVisible(false);
         return true;
     }
 
 
-//    /**
-//     * Définition des actions
-//     * @param item
-//     * @return
-//     */
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item){
-//        switch (item.getItemId()){
-//            case R.id.action_Accueil:
-//                Intent intentMain = new Intent(this, MainActivity.class);
-//                startActivity(intentMain);
-//                return true;
+    /**
+     * Définition des actions
+     * @param item
+     * @return
+     */
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        switch (item.getItemId()){
+            case R.id.action_Accueil:
+                Intent intentMain = new Intent(this, MainActivity.class);
+                startActivity(intentMain);
+                return true;
 //            case R.id.action_settings:
 //                Intent intentParametre = new Intent(this, .class);
 //                startActivity(intentParametre);
@@ -83,14 +85,14 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intentAPropos = new Intent(this, .class);
 //                startActivity(intentAPropos);
 //                return true;
-//            case R.id.action_PagePrecedente:
-//
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//
-//        }
-//    }
+            case R.id.action_PagePrecedente:
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
 
 
 }

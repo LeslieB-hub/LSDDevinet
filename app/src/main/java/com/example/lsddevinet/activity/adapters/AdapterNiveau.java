@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,11 +31,19 @@ public class AdapterNiveau extends RecyclerView.Adapter<AdapterNiveau.ViewHolder
             tvNiveau = itemView.findViewById(R.id.tv_niveau);
             progressBar = itemView.findViewById(R.id.pb_progression);
             itemView.setOnClickListener(this);
+            progressBar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    action.onInteraction(categories.get(ViewHolder.this.getAdapterPosition()));
+                }
+            });
+
         }
 
         @Override
         public void onClick(View view) {
             action.onInteraction(categories.get(ViewHolder.this.getAdapterPosition()));
+
         }
     }
 
