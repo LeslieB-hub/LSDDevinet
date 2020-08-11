@@ -26,10 +26,6 @@ import java.util.List;
 public class DevinerMotActivity extends AppCompatActivity {
 
 
-    private List<Mot> mots = null;
-    Mot premierMot = null;
-    String imgNom = "fraise.jpeg";
-    String motNom = "fraise";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,13 +35,14 @@ public class DevinerMotActivity extends AppCompatActivity {
         Categorie categorie = intent.getParcelableExtra("Categorie");
         int id = categorie.getId();
 
-        ImageView img = findViewById(R.id.image);
-        TextView motADeviner = findViewById(R.id.mot_a_deviner);
+
 
         TextView idCat = findViewById(R.id.id_cat);
+        idCat.setText(String.valueOf(id));
+
         MotViewModel motVM = ViewModelProviders.of(this).get(MotViewModel.class);
 
-        idCat.setText(String.valueOf(id));
+
 
 
 
@@ -53,18 +50,19 @@ public class DevinerMotActivity extends AppCompatActivity {
 
         observateur.observe(this, new Observer<List<Mot>>() {
             @Override
-            public void onChanged(List<Mot> mots) {
-                premierMot = mots.get(0);
-                imgNom = premierMot.getImg();
-                motNom = premierMot.getMot();
+            public void onChanged(List<Mot> mots ) {
+                Mot premierMot = mots.get(0);
+                String imgNom = premierMot.getImg();
+                String motNom = premierMot.getMot();
+                Uri imgUri=Uri.parse("res/drawable/" + imgNom);
+                ((ImageView) DevinerMotActivity.this.findViewById(R.id.image)).setImageURI(imgUri);;
+                ((TextView) DevinerMotActivity.this.findViewById(R.id.mot_a_deviner)).setText(motNom);;
 
                 Toast.makeText(DevinerMotActivity.this, "Test" + premierMot, Toast.LENGTH_LONG).show();
             }
         });
 
-        Uri imgUri=Uri.parse("res/drawable/" + imgNom);
-        img.setImageURI(imgUri);
-        motADeviner.setText(motNom);
+
 
 
 
