@@ -18,7 +18,7 @@
         />
 
     <EditText
-        android:id="@+id/mot"
+        android:id="@+id/mot_proposition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/image"
@@ -26,6 +26,18 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="50dp"
         android:hint="devinez le mot"
+        />
+
+
+    <TextView
+        android:id="@+id/mot_a_deviner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/mot_proposition"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="50dp"
+        android:hint="mot"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
