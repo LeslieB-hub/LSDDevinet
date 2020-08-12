@@ -75,8 +75,11 @@ public class AdapterNiveau extends RecyclerView.Adapter<AdapterNiveau.ViewHolder
     //modifit le contenu de la vue en remplissant une ligne de la vu
     @Override
     public void onBindViewHolder(@NonNull AdapterNiveau.ViewHolder holder, int position) {
-        holder.tvNiveau.setText("Niveau "+ categories.get(position).getId()+" - "+ categories.get(position).getCategorie());
-        holder.progressBar.setProgress(50);
+        holder.tvNiveau.setText("Niveau "+ (categories.get(position).getId()-3)+" - "+ categories.get(position).getCategorie());
+     //   holder.progressBar.setProgress(30);
+
+
+
     }
 
     @Override

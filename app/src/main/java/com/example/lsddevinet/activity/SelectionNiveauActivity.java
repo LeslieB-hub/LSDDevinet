@@ -86,7 +86,6 @@ public class SelectionNiveauActivity extends AppCompatActivity{
         RecyclerView rv = (RecyclerView) parentRow.getParent();
         final int position = rv.getChildLayoutPosition(parentRow);
         Toast.makeText(SelectionNiveauActivity.this," d "+ position, Toast.LENGTH_LONG).show();
-
     }*/
 
     /**
