@@ -228,10 +228,10 @@ public class DevinerMotActivity extends AppCompatActivity {
                 Intent intentMain = new Intent(this, MainActivity.class);
                 startActivity(intentMain);
                 return true;
-//            case R.id.action_settings:
-//                Intent intentParametre = new Intent(this, .class);
-//                startActivity(intentParametre);
-//                return true;
+            case R.id.action_settings:
+                Intent intentParametre = new Intent(this, ParametreActivity.class);
+                startActivity(intentParametre);
+                return true;
             case R.id.action_APropos:
                 Intent intentAPropos = new Intent(this, AProposActivity.class);
                 startActivity(intentAPropos);

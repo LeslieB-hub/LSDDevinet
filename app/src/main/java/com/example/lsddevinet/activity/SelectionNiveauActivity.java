@@ -109,10 +109,10 @@ public class SelectionNiveauActivity extends AppCompatActivity{
      */
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         switch (item.getItemId()){
-//            case R.id.action_settings:
-//                Intent intentParametre = new Intent(this, .class);
-//                startActivity(intentParametre);
-//                return true;
+            case R.id.action_settings:
+                Intent intentParametre = new Intent(this, ParametreActivity.class);
+                startActivity(intentParametre);
+                return true;
             case R.id.action_APropos:
                 Intent intentAPropos = new Intent(this, AProposActivity.class);
                 startActivity(intentAPropos);

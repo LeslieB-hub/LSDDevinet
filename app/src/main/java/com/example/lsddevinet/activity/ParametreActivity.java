@@ -11,17 +11,12 @@ import android.view.View;
 
 import com.example.lsddevinet.R;
 
-public class AProposActivity extends AppCompatActivity {
+public class ParametreActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_a_propos);
-    }
-
-    public void onClickRetour(View view) {
-        Intent intentMain = new Intent(this, MainActivity.class);
-        startActivity(intentMain);
+        setContentView(R.layout.activity_parametre);
     }
 
     /**
@@ -34,7 +29,7 @@ public class AProposActivity extends AppCompatActivity {
         //on décompresse le xml du menu
         getMenuInflater().inflate(R.menu.mon_menu, menu);
         menu.findItem(R.id.action_Accueil).setVisible(false);
-        menu.findItem(R.id.action_APropos).setVisible(false);
+        menu.findItem(R.id.action_settings).setVisible(false);
         return true;
     }
 
@@ -46,9 +41,9 @@ public class AProposActivity extends AppCompatActivity {
      */
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         switch (item.getItemId()){
-            case R.id.action_settings:
-                Intent intentParametre = new Intent(this, ParametreActivity.class);
-                startActivity(intentParametre);
+            case R.id.action_APropos:
+                Intent intentAPropos = new Intent(this, AProposActivity.class);
+                startActivity(intentAPropos);
                 return true;
             case R.id.action_PagePrecedente:
                 Intent intentMain = new Intent(this, MainActivity.class);
@@ -56,7 +51,11 @@ public class AProposActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-
         }
+    }
+
+    public void onClickRetour(View view) {
+        Intent intentMain = new Intent(this, MainActivity.class);
+        startActivity(intentMain);
     }
 }
