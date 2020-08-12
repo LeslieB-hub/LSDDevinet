@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AProposActivity">
+
+    <TextView
+        android:id="@+id/tv_Titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="50dp"
+        android:text="Application développée par : "
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_developpeuse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_Titre"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:text="Dominika et Leslie"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/tv_entreprise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_developpeuse"
+        android:textAlignment="center"
+        android:text=" de LSD Compagny"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_hebergeur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_entreprise"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:text="Hébergeur : "
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/tv_hebergement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_hebergeur"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:text="Nul part"
+        android:textSize="20dp"
+        />
+
+    <Button
+        android:id="@+id/ibnt_retour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_hebergement"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="50dp"
+        android:text="retour"
+        android:onClick="onClickRetour"
+
+
+        />
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

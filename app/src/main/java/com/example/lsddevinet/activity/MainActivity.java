@@ -81,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intentParametre = new Intent(this, .class);
 //                startActivity(intentParametre);
 //                return true;
-//            case R.id.action_APropos:
-//                Intent intentAPropos = new Intent(this, .class);
-//                startActivity(intentAPropos);
-//                return true;
+            case R.id.action_APropos:
+                Intent intentAPropos = new Intent(this, AProposActivity.class);
+                startActivity(intentAPropos);
+                return true;
             case R.id.action_PagePrecedente:
 
                 return true;
