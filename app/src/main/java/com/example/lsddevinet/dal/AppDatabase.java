@@ -62,7 +62,7 @@ public abstract class AppDatabase extends RoomDatabase{
                     motDao.insert(new Mot(0, "oeil.jpeg", "oeil", "", 4 ));
 
                     motDao.insert(new Mot(0, "chien.jpeg", "chien", "", 5 ));
-                    motDao.insert(new Mot(0, "pomme .jpeg", "pomme", "", 5 ));
+                    motDao.insert(new Mot(0, "pomme.jpeg", "pomme", "", 5 ));
                     motDao.insert(new Mot(0, "raisin.jpeg", "raisin", "", 5 ));
                     motDao.insert(new Mot(0, "stylo.jpeg", "stylo", "", 5 ));
                     motDao.insert(new Mot(0, "herbe.jpeg", "herbe", "", 5 ));
