@@ -52,25 +52,24 @@ public abstract class AppDatabase extends RoomDatabase{
                     categorieDao.insert(new Categorie(8,"8 lettres"));
                     categorieDao.insert(new Categorie(9,"9 lettres"));
                     categorieDao.insert(new Categorie(10,"10 lettres"));
-                    categorieDao.insert(new Categorie(11,"11 lettres"));
 
                     motDao.insert(new Mot(0, "kiwi.jpeg", "kiwi", "", 4 ));
-                    motDao.insert(new Mot(0, "tank.jpeg", "tank", "", 4 ));
+                    motDao.insert(new Mot(0, "tank.jpeg", "tank", "tank", 4 ));
                     motDao.insert(new Mot(0, "chat.jpeg", "chat", "", 4 ));
                     motDao.insert(new Mot(0, "main.jpeg", "main", "", 4 ));
-                    motDao.insert(new Mot(0, "pain.jpeg", "pain", "", 4 ));
-                    motDao.insert(new Mot(0, "oeil.jpeg", "oeil", "", 4 ));
+                    motDao.insert(new Mot(0, "pain.jpeg", "pain", "pain", 4 ));
+                    motDao.insert(new Mot(0, "oeil.jpeg", "oeil", "oeil", 4 ));
 
                     motDao.insert(new Mot(0, "chien.jpeg", "chien", "", 5 ));
                     motDao.insert(new Mot(0, "pomme.jpeg", "pomme", "", 5 ));
                     motDao.insert(new Mot(0, "raisin.jpeg", "raisin", "", 5 ));
                     motDao.insert(new Mot(0, "stylo.jpeg", "stylo", "", 5 ));
                     motDao.insert(new Mot(0, "herbe.jpeg", "herbe", "", 5 ));
-                    motDao.insert(new Mot(0, "livre.jpeg", "livre", "", 5 ));
+                    motDao.insert(new Mot(0, "livre.jpeg", "livre", "livre", 5 ));
 
-                    motDao.insert(new Mot(0, "chaise.jpeg", "chaise", "", 6 ));
-                    motDao.insert(new Mot(0, "dragon.jpeg", "dragon", "", 6 ));
-                    motDao.insert(new Mot(0, "soleil.jpeg", "soleil", "", 6 ));
+                    motDao.insert(new Mot(0, "chaise.jpeg", "chaise", "chaise", 6 ));
+                    motDao.insert(new Mot(0, "dragon.jpeg", "dragon", "dragon", 6 ));
+                    motDao.insert(new Mot(0, "soleil.jpeg", "soleil", "soleil", 6 ));
                     motDao.insert(new Mot(0, "fraise.jpeg", "fraise", "", 6 ));
                     motDao.insert(new Mot(0, "miroir.jpeg", "miroir", "", 6 ));
                     motDao.insert(new Mot(0, "bateau.jpeg", "bateau", "", 6 ));
@@ -92,8 +91,8 @@ public abstract class AppDatabase extends RoomDatabase{
                     motDao.insert(new Mot(0, "cigarette.jpeg", "cigarette", "", 9 ));
 
 
-                    motDao.insert(new Mot(0, "grenouille.jpeg", "grenouille", "", 10 ));
-                    motDao.insert(new Mot(0, "champignon.jpeg", "champignon", "", 10 ));
+                    motDao.insert(new Mot(0, "grenouille.jpeg", "grenouille", "grenouille", 10 ));
+                    motDao.insert(new Mot(0, "champignon.jpeg", "champignon", "champignon", 10 ));
 
                     return null;
                 }
