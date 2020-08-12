@@ -25,8 +25,7 @@ public class Mot implements Parcelable{
     private String proposition;
     private int idCategorie;
 
-    public Mot(int id, String img, String mot, String proposition, int idCategorie) {
-        this.id = id;
+    public Mot(String img, String mot, String proposition, int idCategorie) {
         this.img = img;
         this.mot = mot;
         this.proposition = proposition;
