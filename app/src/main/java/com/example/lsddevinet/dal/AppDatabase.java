@@ -26,7 +26,7 @@ public abstract class AppDatabase extends RoomDatabase{
 
         if (INSTANCE_CNX == null){
             INSTANCE_CNX = Room.databaseBuilder(context, AppDatabase.class, "devinet.db")
-                    .fallbackToDestructiveMigration()
+                    //.fallbackToDestructiveMigration()
                     .addCallback(roomFixture)
                     .build();
         }

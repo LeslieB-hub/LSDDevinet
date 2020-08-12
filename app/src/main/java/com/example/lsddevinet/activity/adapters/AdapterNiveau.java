@@ -66,7 +66,7 @@ public class AdapterNiveau extends RecyclerView.Adapter<AdapterNiveau.ViewHolder
     @NonNull
     @Override
     public AdapterNiveau.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater. from (parent.getContext()).inflate(R.layout.ligne_cardview_niveau , parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.ligne_cardview_niveau, parent, false);
         ViewHolder vh = new ViewHolder(view);
         return vh;
     }

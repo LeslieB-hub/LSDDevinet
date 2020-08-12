@@ -27,8 +27,8 @@ public class AdapterResultatDetail extends RecyclerView.Adapter<AdapterResultatD
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
-           // editTextMot = itemView.findViewById(R.id.ed_mot);
-           // editTextMotPropose = itemView.findViewById(R.id.ed_motpropose);
+            editTextMot = itemView.findViewById(R.id.ed_mot);
+            editTextMotPropose = itemView.findViewById(R.id.ed_motpropose);
         }
 
     }
@@ -51,7 +51,7 @@ public class AdapterResultatDetail extends RecyclerView.Adapter<AdapterResultatD
     @NonNull
     @Override
     public AdapterResultatDetail.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater. from (parent.getContext()).inflate(R.layout.activity_detail_resultat , parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.style_ligne_resultat_detail, parent, false);
         return new ViewHolder(view);
     }
 

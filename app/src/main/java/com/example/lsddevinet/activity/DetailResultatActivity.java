@@ -41,14 +41,9 @@ public class DetailResultatActivity extends AppCompatActivity {
         //Récupérer la liste entière de mots
         MotViewModel motVM = ViewModelProviders.of(this).get(MotViewModel.class);
 
-        //LiveData<List<Mot>> observateur = motVM.getAllMots();
-        //Log.i("Devinet", "liste de mots " + observateur.getValue().get(0));
-
-
-        motVM.getAllMots().observe(this, new Observer<List<Mot>>() {
+        motVM.getObservateurAllMots().observe(this, new Observer<List<Mot>>() {
             @Override
             public void onChanged(List<Mot> mots) {
-               // Log.i("Devinet", "liste de mots " + mots.get(0));
                 AdapterResultatDetail adapterResultatDetail = new AdapterResultatDetail(mots);
                 recyclerView.setAdapter(adapterResultatDetail);
             }
