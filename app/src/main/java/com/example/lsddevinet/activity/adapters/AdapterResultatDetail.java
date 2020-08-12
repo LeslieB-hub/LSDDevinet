@@ -27,8 +27,8 @@ public class AdapterResultatDetail extends RecyclerView.Adapter<AdapterResultatD
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
-            editTextMot = itemView.findViewById(R.id.ed_mot);
-            editTextMotPropose = itemView.findViewById(R.id.ed_motpropose);
+           // editTextMot = itemView.findViewById(R.id.ed_mot);
+           // editTextMotPropose = itemView.findViewById(R.id.ed_motpropose);
         }
 
     }
