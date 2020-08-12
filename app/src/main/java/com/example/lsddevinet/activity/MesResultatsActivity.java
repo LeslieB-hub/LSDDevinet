@@ -13,7 +13,7 @@ import android.telecom.Call;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.lsddevinet.DetailResultatActivity;
+import com.example.lsddevinet.activity.DetailResultatActivity;
 import com.example.lsddevinet.R;
 import com.example.lsddevinet.ViewModel.CategorieViewModel;
 import com.example.lsddevinet.activity.adapters.AdapterNiveau;
@@ -55,10 +55,12 @@ public class MesResultatsActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Categorie> categories) {
                 ResultatsAdapter resultatsAdapter = new ResultatsAdapter(categories);
+                //lié l'adapter au recycleview
+                recyclerView.setAdapter(resultatsAdapter);
             }
             });
-        //lié l'adapter au recycleview
-        recyclerView.setAdapter(resultatsAdapter);
+
+
     }
 
     public void OnClickDetails(View view) {

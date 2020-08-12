@@ -18,8 +18,8 @@ public class ResultatsAdapter extends RecyclerView.Adapter<ResultatsAdapter.View
 
     private List<Categorie> categories;
 
-    public ResultatsAdapter(List<Categorie> categories) {
-        categories=categories;
+    public ResultatsAdapter(List<Categorie> mCategories) {
+        categories=mCategories;
     }
 
     @NonNull
@@ -35,7 +35,7 @@ public class ResultatsAdapter extends RecyclerView.Adapter<ResultatsAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ResultatsAdapter.ViewHolder holder, int position) {
-        holder.tvNiveau.setText("Niveau "+ (categories.get(position).getId()-3)+" - "+ categories.get(position).getCategorie());
+        holder.tvNiveau.setText("Niveau "+ (categories.get(position).getId())+" - "+ categories.get(position).getCategorie());
         //   holder.progressBar.setProgress(30);
 
     }
