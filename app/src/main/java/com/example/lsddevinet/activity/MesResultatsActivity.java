@@ -13,6 +13,7 @@ import android.telecom.Call;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.lsddevinet.DetailResultatActivity;
 import com.example.lsddevinet.R;
 import com.example.lsddevinet.ViewModel.CategorieViewModel;
 import com.example.lsddevinet.activity.adapters.AdapterNiveau;
@@ -61,7 +62,7 @@ public class MesResultatsActivity extends AppCompatActivity {
     }
 
     public void OnClickDetails(View view) {
-        Intent intentDetails = new Intent(this, DetailsResultatsActivity.class);
+        Intent intentDetails = new Intent(this, DetailResultatActivity.class);
         startActivity(intentDetails);
     }
 
