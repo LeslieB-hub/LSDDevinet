@@ -18,33 +18,6 @@ public class ResultatsAdapter extends RecyclerView.Adapter<ResultatsAdapter.View
 
     private List<Categorie> categories;
 
-    public ResultatsAdapter(List<Categorie> mCategories) {
-        categories=mCategories;
-    }
-
-    @NonNull
-    @Override
-    public ResultatsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater. from (parent.getContext()).inflate(R.layout.ligne_recycleview_resultats , parent, false);
-        ResultatsAdapter.ViewHolder vh = new ViewHolder(view);
-        return vh;
-
-    }
-
-
-
-    @Override
-    public void onBindViewHolder(@NonNull ResultatsAdapter.ViewHolder holder, int position) {
-        holder.tvNiveau.setText("Niveau "+ (categories.get(position).getId())+" - "+ categories.get(position).getCategorie());
-        //   holder.progressBar.setProgress(30);
-
-    }
-
-    @Override
-    public int getItemCount() {
-        return categories.size();
-    }
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvNiveau;
         public ProgressBar progressBar;
@@ -56,43 +29,34 @@ public class ResultatsAdapter extends RecyclerView.Adapter<ResultatsAdapter.View
         }
     }
 
+    public ResultatsAdapter(List<Categorie> mCategories) {
+        categories=mCategories;
+    }
+
+    @NonNull
+    @Override
+    public ResultatsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.ligne_recycleview_resultats , parent, false);
+        ResultatsAdapter.ViewHolder vh = new ViewHolder(view);
+        return vh;
+
+    }
+
+
+
+    @Override
+    public void onBindViewHolder(@NonNull ResultatsAdapter.ViewHolder holder, int position) {
+        holder.tvNiveau.setText("Niveau "+ (categories.get(position).getId()-3)+" - "+ categories.get(position).getCategorie());
+        //   holder.progressBar.setProgress(30);
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return categories.size();
+    }
+
+
+
 
 }
-
-//public static class MyViewHolder extends RecyclerView.ViewHolder {
-//    // each data item is just a string in this case
-//    public TextView textView;
-//    public MyViewHolder(TextView v) {
-//        super(v);
-//        textView = v;
-//    }
-//}
-//
-//    // Provide a suitable constructor (depends on the kind of dataset)
-//    public MyAdapter(String[] myDataset) {
-//        mDataset = myDataset;
-//    }
-//
-//    // Create new views (invoked by the layout manager)
-//    @Override
-//    public MyAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
-//                                                     int viewType) {
-//        // create a new view
-//        TextView v = (TextView) LayoutInflater.from(parent.getContext())
-//                .inflate(R.layout.my_text_view, parent, false);
-//        ...
-//        MyViewHolder vh = new MyViewHolder(v);
-//        return vh;
-//    }
-//
-//    // Replace the contents of a view (invoked by the layout manager)
-//    @Override
-//    public void onBindViewHolder(MyViewHolder holder, int position) {
-//        // - get element from your dataset at this position
-//        // - replace the contents of the view with that element
-//        holder.textView.setText(mDataset[position]);
-//
-//    }
-//
-
-//}
