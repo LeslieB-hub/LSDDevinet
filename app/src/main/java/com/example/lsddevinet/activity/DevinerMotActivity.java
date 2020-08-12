@@ -37,11 +37,11 @@ public class DevinerMotActivity extends AppCompatActivity {
     Mot motTire = null;
     String mot = null;
     ArrayList<Button> buttons = new ArrayList<Button>();
-    String motPropose = null;
     EditText lettreTape1, lettreTape2, lettreTape3, lettreTape4, lettreTape5, lettreTape6, lettreTape7,
             lettreTape8, lettreTape9,lettreTape10, lettreTape11, lettreTape12 = null;
     ArrayList<EditText> editTexts = new ArrayList<EditText>();
-    String lettre = null;
+    String lettre= new String();
+    String motPropose = new String();
 
 
 
@@ -199,7 +199,7 @@ public class DevinerMotActivity extends AppCompatActivity {
                 Uri imgUri = Uri.parse("android.resource://" + getPackageName() + "/drawable/" + mot);
 
                 ((ImageView) DevinerMotActivity.this.findViewById(R.id.image)).setImageURI(imgUri);
-
+                Log.i("Devinet", "Nombre aléatoire : " + nbRandom + " taille de la liste : "+mots.size());
                 Toast.makeText(DevinerMotActivity.this, "Test" + motTire + nbRandom, Toast.LENGTH_LONG).show();
 
             }
@@ -409,8 +409,25 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickValider(View view) {
         //mettre les lettres dans le mot propose
-        
+
+        for(int i=0; i < 12; i++){
+            motPropose += editTexts.get(i).getText();
+        }
+        motPropose = motPropose.trim();
+        Log.i("Devinet", "mot tapée " + motPropose);
+        //Verifier le mot proposé avec le mot tiré
+        motTire.setProposition(motPropose);
+        if (mot.equals(motPropose)){
+            Toast.makeText(DevinerMotActivity.this, "Gagné " + motPropose + mot, Toast.LENGTH_LONG).show();
+        }else {
+            Toast.makeText(DevinerMotActivity.this, "PERDU !! Le mot était "+ mot, Toast.LENGTH_LONG).show();
+        }
+
+        Log.i("Devinet", "mot tiré " + motTire.toString());
     }
+
+
+
 
     public void onClickSuivant(View view) {
     }
