@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickResultat(View view) {
+        Intent intentResultats = new Intent(this, MesResultatsActivity.class);
+        startActivity(intentResultats);
     }
 
     public void onClickProposition(View view) {
