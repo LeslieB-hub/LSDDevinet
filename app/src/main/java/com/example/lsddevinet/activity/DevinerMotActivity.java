@@ -31,7 +31,6 @@ import java.util.Random;
 
 public class DevinerMotActivity extends AppCompatActivity {
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12 = null;
-    List<Mot> motsTempo = new ArrayList<>();
     int id, nbRandom;
     Random random = new Random();
     Mot motTire = null;
@@ -42,6 +41,7 @@ public class DevinerMotActivity extends AppCompatActivity {
     ArrayList<EditText> editTexts = new ArrayList<EditText>();
     String lettre= new String();
     String motPropose = new String();
+    MotViewModel motVM;
 
 
 
@@ -110,16 +110,13 @@ public class DevinerMotActivity extends AppCompatActivity {
         Categorie categorie = intent.getParcelableExtra("Categorie");
         id = categorie.getId();
 
-        MotViewModel motVM = ViewModelProviders.of(this).get(MotViewModel.class);
+       motVM = ViewModelProviders.of(this).get(MotViewModel.class);
 
         LiveData<List<Mot>> observateur = motVM.getMotByCategorie(id);
 
         observateur.observe(this, new Observer<List<Mot>>() {
             @Override
             public void onChanged(List<Mot> mots ) {
-//                for (Mot mot:mots) {
-//                    motsTempo.add(mot);
-//                }
 
                 //Tirer un mot au hasard
                 nbRandom = random.nextInt(mots.size()-1);
@@ -147,49 +144,37 @@ public class DevinerMotActivity extends AppCompatActivity {
 
                 //Afficher le nombre de bouton
                 switch (id){
-                    case 5:
+                    case 2:
                         btn5.setVisibility(View.VISIBLE);
                         lettreTape5.setVisibility(View.VISIBLE);
 
                         break;
-                    case 6:
+                    case 3:
                         for(int i=4; i < 6; i++){
                             buttons.get(i).setVisibility(View.VISIBLE);
                             editTexts.get(i).setVisibility(View.VISIBLE);
                         }
                         break;
-                    case 7:
+                    case 4:
                         for(int i=4; i < 7; i++){
                             buttons.get(i).setVisibility(View.VISIBLE);
                             editTexts.get(i).setVisibility(View.VISIBLE);
                         }
                         break;
-                    case 8:
+                    case 5:
                         for(int i=4; i < 8; i++){
                             buttons.get(i).setVisibility(View.VISIBLE);
                             editTexts.get(i).setVisibility(View.VISIBLE);
                         }
                         break;
-                    case 9:
+                    case 6:
                         for(int i=4; i < 9; i++){
                             buttons.get(i).setVisibility(View.VISIBLE);
                             editTexts.get(i).setVisibility(View.VISIBLE);
                         }
                         break;
-                    case 10:
+                    case 7:
                         for(int i=4; i < 10; i++){
-                            buttons.get(i).setVisibility(View.VISIBLE);
-                            editTexts.get(i).setVisibility(View.VISIBLE);
-                        }
-                        break;
-                    case 11:
-                        for(int i=4; i < 11; i++){
-                            buttons.get(i).setVisibility(View.VISIBLE);
-                            editTexts.get(i).setVisibility(View.VISIBLE);
-                        }
-                        break;
-                    case 12:
-                        for(int i=4; i < 12; i++){
                             buttons.get(i).setVisibility(View.VISIBLE);
                             editTexts.get(i).setVisibility(View.VISIBLE);
                         }
@@ -205,8 +190,6 @@ public class DevinerMotActivity extends AppCompatActivity {
             }
         });
 
-//        Mot mottirer = motsTempo.get(1);
-//        Toast.makeText(DevinerMotActivity.this, "Test" + mottirer, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -415,8 +398,11 @@ public class DevinerMotActivity extends AppCompatActivity {
         }
         motPropose = motPropose.trim();
         Log.i("Devinet", "mot tapée " + motPropose);
-        //Verifier le mot proposé avec le mot tiré
+        //mettre la proposition dans la bdd
         motTire.setProposition(motPropose);
+        motVM.update(motTire);
+        //Verifier le mot proposé avec le mot tiré
+
         if (mot.equals(motPropose)){
             Toast.makeText(DevinerMotActivity.this, "Gagné " + motPropose + mot, Toast.LENGTH_LONG).show();
         }else {
