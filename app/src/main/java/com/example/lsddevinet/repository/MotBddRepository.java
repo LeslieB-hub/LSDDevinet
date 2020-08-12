@@ -90,7 +90,7 @@ public class MotBddRepository implements IMotBddRepository {
                 super.onPostExecute(mot);
                 motGet = mot;
             }
-        }.execute();
+        }.execute(id);
         return motGet;
     }
 
