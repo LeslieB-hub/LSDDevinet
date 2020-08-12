@@ -20,8 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DevinerMotActivity"
-            android:label="Deviner un mot">
+        <activity android:name=".activity.DevinerMotActivity">
 
         </activity>
     </application>

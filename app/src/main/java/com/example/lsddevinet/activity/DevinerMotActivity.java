@@ -1,5 +1,6 @@
 package com.example.lsddevinet.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
@@ -11,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +32,8 @@ import java.util.List;
 import java.util.Random;
 
 public class DevinerMotActivity extends AppCompatActivity {
+
+    //Déclaration des variables
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12 = null;
     int id, nbRandom;
     Random random = new Random();
@@ -50,9 +54,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deviner_mot);
 
-
-
-        //Récupérer les boutons
+       //Récupérer les boutons
         btn1 = findViewById(R.id.btn_1);
         btn2 = findViewById(R.id.btn_2);
         btn3 = findViewById(R.id.btn_3);
@@ -110,7 +112,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         Categorie categorie = intent.getParcelableExtra("Categorie");
         id = categorie.getId();
 
-       motVM = ViewModelProviders.of(this).get(MotViewModel.class);
+        motVM = ViewModelProviders.of(this).get(MotViewModel.class);
 
         LiveData<List<Mot>> observateur = motVM.getMotByCategorie(id);
 
@@ -184,6 +186,10 @@ public class DevinerMotActivity extends AppCompatActivity {
                 Uri imgUri = Uri.parse("android.resource://" + getPackageName() + "/drawable/" + mot);
 
                 ((ImageView) DevinerMotActivity.this.findViewById(R.id.image)).setImageURI(imgUri);
+                //Définit le titre de l'app sur cette page
+                nbRandom+=1;
+                setTitle("NIVEAU "+ id + " - MOT N°"+nbRandom);
+
                 Log.i("Devinet", "Nombre aléatoire : " + nbRandom + " taille de la liste : "+mots.size());
                 Toast.makeText(DevinerMotActivity.this, "Test" + motTire + nbRandom, Toast.LENGTH_LONG).show();
 
@@ -207,7 +213,33 @@ public class DevinerMotActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         //on décompresse le xml du menu
         getMenuInflater().inflate(R.menu.mon_menu, menu);
+        menu.findItem(R.id.action_PagePrecedente).setVisible(false);
         return true;
+    }
+
+    /**
+     * Définition des actions
+     * @param item
+     * @return
+     */
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        switch (item.getItemId()){
+            case R.id.action_Accueil:
+                Intent intentMain = new Intent(this, MainActivity.class);
+                startActivity(intentMain);
+                return true;
+//            case R.id.action_settings:
+//                Intent intentParametre = new Intent(this, .class);
+//                startActivity(intentParametre);
+//                return true;
+//            case R.id.action_APropos:
+//                Intent intentAPropos = new Intent(this, .class);
+//                startActivity(intentAPropos);
+//                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
     public void onClickBtn1(View view) {
@@ -404,15 +436,13 @@ public class DevinerMotActivity extends AppCompatActivity {
         //Verifier le mot proposé avec le mot tiré
 
         if (mot.equals(motPropose)){
-            Toast.makeText(DevinerMotActivity.this, "Gagné " + motPropose + mot, Toast.LENGTH_LONG).show();
+            Toast.makeText(DevinerMotActivity.this, "Gagné " + mot, Toast.LENGTH_LONG).show();
         }else {
             Toast.makeText(DevinerMotActivity.this, "PERDU !! Le mot était "+ mot, Toast.LENGTH_LONG).show();
         }
 
         Log.i("Devinet", "mot tiré " + motTire.toString());
     }
-
-
 
 
     public void onClickSuivant(View view) {
