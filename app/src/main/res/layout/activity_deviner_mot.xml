@@ -26,9 +26,12 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/et_lettre2"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="40dp"
         android:hint="X"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
 
     <EditText
@@ -40,6 +43,9 @@
         android:layout_marginTop="50dp"
         android:hint="X"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
 
     <EditText
@@ -51,6 +57,9 @@
         android:layout_marginTop="50dp"
         android:hint="X"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
     <EditText
         android:id="@+id/et_lettre4"
@@ -61,6 +70,9 @@
         android:layout_marginTop="50dp"
         android:hint="X"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
     <EditText
         android:id="@+id/et_lettre5"
@@ -72,6 +84,9 @@
         android:hint="X"
         android:visibility="invisible"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
 
     <EditText
@@ -84,6 +99,9 @@
         android:hint="X"
         android:visibility="invisible"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
     <EditText
         android:id="@+id/et_lettre7"
@@ -95,6 +113,9 @@
         android:hint="X"
         android:visibility="invisible"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
     <EditText
         android:id="@+id/et_lettre8"
@@ -106,6 +127,9 @@
         android:hint="X"
         android:visibility="invisible"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
     <EditText
         android:id="@+id/et_lettre9"
@@ -117,7 +141,11 @@
         android:hint="X"
         android:visibility="invisible"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
+
     <EditText
         android:id="@+id/et_lettre10"
         android:layout_width="25dp"
@@ -128,7 +156,11 @@
         android:hint="X"
         android:visibility="invisible"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
+
     <EditText
         android:id="@+id/et_lettre11"
         android:layout_width="25dp"
@@ -139,7 +171,11 @@
         android:hint="X"
         android:visibility="invisible"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
+
     <EditText
         android:id="@+id/et_lettre12"
         android:layout_width="25dp"
@@ -150,6 +186,9 @@
         android:hint="X"
         android:visibility="invisible"
         android:background="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
         />
 
     <Button

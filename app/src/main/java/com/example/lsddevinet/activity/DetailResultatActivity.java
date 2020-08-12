@@ -83,8 +83,8 @@ public class DetailResultatActivity extends AppCompatActivity {
                 startActivity(intentAPropos);
                 return true;
             case R.id.action_PagePrecedente:
-//                Intent intentResultat = new Intent(this, MainActivity.class);
-//                startActivity(intentResultat);
+                Intent intentResultat = new Intent(this, MesResultatsActivity.class);
+                startActivity(intentResultat);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
