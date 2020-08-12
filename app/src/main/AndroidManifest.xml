@@ -10,8 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ParametreActivity"
-            android:label="PARAMETRES"></activity>
+        <activity
+            android:name=".activity.ParametreActivity"
+            android:label="PARAMETRES" />
         <activity
             android:name=".activity.AProposActivity"
             android:label="A PROPOS" />
@@ -25,7 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DetailResultatActivity" />
+        <activity android:name=".activity.DetailResultatActivity"
+                    android:label="RESULTAT - DETAIL"/>
         <activity android:name=".activity.DevinerMotActivity" />
         <activity android:name=".activity.MesResultatsActivity" />
 

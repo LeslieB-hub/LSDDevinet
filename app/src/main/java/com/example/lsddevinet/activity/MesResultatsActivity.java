@@ -44,13 +44,10 @@ public class MesResultatsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
 
-
-/////////////////////////////////////////
         //Récupérer la liste de catégorie
         CategorieViewModel categorieVm = ViewModelProviders.of(this).get(CategorieViewModel.class);
-        LiveData<List<Categorie>> observateur = categorieVm.getAllCategories();
 
-        observateur.observe(this, new Observer<List<Categorie>>() {
+        categorieVm.getAllCategories().observe(this, new Observer<List<Categorie>>() {
             @Override
             public void onChanged(List<Categorie> categories) {
                 resultatsAdapter = new ResultatsAdapter(categories);

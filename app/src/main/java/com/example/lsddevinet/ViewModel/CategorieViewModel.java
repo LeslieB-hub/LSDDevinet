@@ -19,15 +19,16 @@ public class CategorieViewModel extends AndroidViewModel {
 
     ICategorieRepository categRepo;
 
-
+    private LiveData<List<Categorie>> observateurCategories;
 
     public CategorieViewModel(@NonNull Application application) {
         super(application);
         categRepo = new CategorieBddRepository(application);
+        observateurCategories = categRepo.getAllCategories();
     }
 
     public LiveData<List<Categorie>> getAllCategories() {
-        return categRepo.getAllCategories();
+        return observateurCategories;
     }
 
     public void insert(final Categorie categorie) {

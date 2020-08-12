@@ -114,11 +114,11 @@ public class DevinerMotActivity extends AppCompatActivity {
 
         motVM = ViewModelProviders.of(this).get(MotViewModel.class);
 
-        LiveData<List<Mot>> observateur = motVM.getMotByCategorie(id);
+        motVM.getMotByCategorie(id);
 
-        observateur.observe(this, new Observer<List<Mot>>() {
+        motVM.getObservateurMotByCategorie().observe(this, new Observer<List<Mot>>() {
             @Override
-            public void onChanged(List<Mot> mots ) {
+            public void onChanged(List<Mot> mots) {
 
                 //Tirer un mot au hasard
                 nbRandom = random.nextInt(mots.size()-1);
@@ -152,7 +152,7 @@ public class DevinerMotActivity extends AppCompatActivity {
 
                         break;
                     case 3:
-                        for(int i=4; i < 6; i++){
+                        for(int i=3; i < 6; i++){
                             buttons.get(i).setVisibility(View.VISIBLE);
                             editTexts.get(i).setVisibility(View.VISIBLE);
                         }

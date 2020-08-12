@@ -16,18 +16,21 @@ public class MotViewModel extends AndroidViewModel {
 
     IMotBddRepository motRepo;
 
-
     public MotViewModel(@NonNull Application application) {
         super(application);
         motRepo = new MotBddRepository(application);
     }
 
     public LiveData<List<Mot>> getAllMots() {
-        return motRepo.getAllMots();
+        return motRepo.getObservateurAllMots();
     }
 
-    public LiveData<List<Mot>> getMotByCategorie(int idCategorie) {
-        return motRepo.getMotByCategorie(idCategorie);
+    public LiveData<List<Mot>> getObservateurMotByCategorie() {
+        return motRepo.getObservateurMotByCategorie();
+    }
+
+    public void getMotByCategorie(int idCategorie){
+        motRepo.getMotByCategorie(idCategorie);
     }
 
 

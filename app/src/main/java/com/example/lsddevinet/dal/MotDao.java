@@ -31,7 +31,7 @@ public interface MotDao {
      * @return tous les mots de la bdd d'une catégorie
      */
     @Query("SELECT * FROM Mot WHERE idCategorie = :idCategorie")
-    LiveData<List<Mot>> getMotByCategorie(int idCategorie);
+    List<Mot> getMotByCategorie(int idCategorie);
 
     /**
      * Selectionne un mot

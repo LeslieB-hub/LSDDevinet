@@ -13,8 +13,11 @@ import java.util.List;
 
 public class CategorieBddRepository implements ICategorieRepository {
 
-    private CategorieDao categorieDao = null;
+    private CategorieDao categorieDao;
+    private LiveData<List<Categorie>> observateurCategories;
     Categorie categorieGet = null;
+
+
 
     /**
      * Constructeur pour récupérer le context de l'appli et se connecter à la bdd une seule fois
@@ -25,6 +28,7 @@ public class CategorieBddRepository implements ICategorieRepository {
         AppDatabase database = AppDatabase.getInstance(context);
         //Instance de la dao Catégorie et Mot
         categorieDao = database.getCategorieDao();
+        observateurCategories = categorieDao.getAllCategories();
     }
 
     @Override
@@ -41,7 +45,7 @@ public class CategorieBddRepository implements ICategorieRepository {
 
     @Override
     public LiveData<List<Categorie>> getAllCategories() {
-        return categorieDao.getAllCategories();
+        return observateurCategories;
     }
 
     @Override

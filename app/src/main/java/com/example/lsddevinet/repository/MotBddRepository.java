@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.lsddevinet.dal.AppDatabase;
 import com.example.lsddevinet.dal.MotDao;
@@ -13,8 +14,11 @@ import java.util.List;
 
 public class MotBddRepository implements IMotBddRepository {
 
-    private MotDao motDao = null;
+    private MotDao motDao;
     Mot motGet = null;
+    LiveData<List<Mot>> observateurgetAllMots = null;
+    MutableLiveData<List<Mot>> observateurgetMotsByCategorie = null;
+
 
     /**
      * Constructeur pour récupérer le context de l'appli et se connecter à la bdd une seule fois
@@ -25,6 +29,11 @@ public class MotBddRepository implements IMotBddRepository {
         AppDatabase database = AppDatabase.getInstance(context);
         //Instance de la dao Catégorie et Mot
         motDao = database.getMotDao();
+
+        observateurgetAllMots= motDao.getAllMots();
+
+        observateurgetMotsByCategorie = new MutableLiveData<>();
+
     }
 
     @Override
@@ -40,13 +49,31 @@ public class MotBddRepository implements IMotBddRepository {
     }
 
     @Override
-    public LiveData<List<Mot>> getAllMots() {
-        return motDao.getAllMots();
+    public LiveData<List<Mot>> getObservateurAllMots() {
+        return observateurgetAllMots;
     }
 
     @Override
-    public LiveData<List<Mot>> getMotByCategorie(int idCategorie) {
-        return motDao.getMotByCategorie(idCategorie);
+    public LiveData<List<Mot>> getObservateurMotByCategorie() {
+        return observateurgetMotsByCategorie;
+    }
+
+
+    @Override
+    public void getMotByCategorie(int idCategorie) {
+        new AsyncTask<Integer,Void,List<Mot>>(){
+
+            @Override
+            protected List<Mot> doInBackground(Integer... integers) {
+                return motDao.getMotByCategorie(integers[0]);
+            }
+
+            @Override
+            protected void onPostExecute(List<Mot> mots) {
+                super.onPostExecute(mots);
+                observateurgetMotsByCategorie.setValue(mots);
+            }
+        }.execute(idCategorie);
     }
 
     @Override
