@@ -21,7 +21,7 @@ public class MotViewModel extends AndroidViewModel {
         motRepo = new MotBddRepository(application);
     }
 
-    public LiveData<List<Mot>> getAllMots() {
+    public LiveData<List<Mot>> getObservateurAllMots() {
         return motRepo.getObservateurAllMots();
     }
 
@@ -37,8 +37,8 @@ public class MotViewModel extends AndroidViewModel {
     public void insert(final Mot mot) {
         motRepo.insert(mot);
     }
-    public void get(int id) {
-        motRepo.get(id);
+    public Mot get(int id) {
+        return motRepo.get(id);
     }
     public void update(final Mot mot) {
         motRepo.update(mot);
