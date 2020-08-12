@@ -84,10 +84,10 @@
             >
 
             <CheckBox
-                android:layout_width="match_parent"
+                android:id="@+id/cb_bonmot"
+                android:layout_width="94dp"
                 android:layout_height="match_parent"
-                />
-
+                android:buttonTint="@color/colorPrimaryDark" />
 
         </LinearLayout>
 

@@ -1,8 +1,10 @@
 package com.example.lsddevinet.activity.adapters;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -23,12 +25,15 @@ public class AdapterResultatDetail extends RecyclerView.Adapter<AdapterResultatD
         public ImageView imageView;
         public EditText editTextMot;
         public EditText editTextMotPropose;
+        public CheckBox checkBox;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image);
             editTextMot = itemView.findViewById(R.id.ed_mot);
             editTextMotPropose = itemView.findViewById(R.id.ed_motpropose);
+            checkBox = itemView.findViewById(R.id.cb_bonmot);
+
         }
 
     }
@@ -58,10 +63,13 @@ public class AdapterResultatDetail extends RecyclerView.Adapter<AdapterResultatD
 
     @Override
     public void onBindViewHolder(@NonNull AdapterResultatDetail.ViewHolder holder, int position) {
-        //holder.imageView.setImageURI(mots.get(position).getImg()); bo img string  ou mettre l'image ds onCreate
+        Uri imgUri = Uri.parse("android.resource://com.example.lsddevinet/drawable/" + mots.get(position).getMot());
+        holder.imageView.setImageURI(imgUri);
         holder.editTextMot.setText(mots.get(position).getMot());
         holder.editTextMotPropose.setText(mots.get(position).getProposition());
-
+        if (mots.get(position).getMot().equals(mots.get(position).getProposition())){
+            holder.checkBox.setChecked(true);
+        }
     }
 
     @Override
