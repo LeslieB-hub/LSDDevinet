@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.PieChartActivity"></activity>
+        <activity android:name=".activity.QuitterActivity"></activity>
+        <activity android:name=".activity.PieChartActivity" />
         <activity
             android:name=".activity.ParametreActivity"
             android:label="PARAMETRES" />
@@ -30,10 +31,12 @@
         <activity
             android:name=".activity.DetailResultatActivity"
             android:label="RESULTAT - DETAIL" />
-        <activity android:name=".activity.DevinerMotActivity"
-            android:label="PROPOSITION"/>
-        <activity android:name=".activity.MesResultatsActivity"
-            android:label="RESULTATS - GENERAL"/>
+        <activity
+            android:name=".activity.DevinerMotActivity"
+            android:label="PROPOSITION" />
+        <activity
+            android:name=".activity.MesResultatsActivity"
+            android:label="RESULTATS - GENERAL" />
     </application>
 
 </manifest>
