@@ -17,6 +17,7 @@ import java.util.List;
 public class ResultatsAdapter extends RecyclerView.Adapter<ResultatsAdapter.ViewHolder> {
 
     private List<Categorie> categories;
+    private List<Integer> progression;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvNiveau;
@@ -29,8 +30,9 @@ public class ResultatsAdapter extends RecyclerView.Adapter<ResultatsAdapter.View
         }
     }
 
-    public ResultatsAdapter(List<Categorie> mCategories) {
+    public ResultatsAdapter(List<Categorie> mCategories, List<Integer> mProgression) {
         categories=mCategories;
+        progression=mProgression;
     }
 
     @NonNull
@@ -47,7 +49,7 @@ public class ResultatsAdapter extends RecyclerView.Adapter<ResultatsAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ResultatsAdapter.ViewHolder holder, int position) {
         holder.tvNiveau.setText("Niveau "+ (categories.get(position).getId())+" - "+ categories.get(position).getCategorie());
-        //   holder.progressBar.setProgress(30);
+        holder.progressBar.setProgress(progression.get(position));
 
     }
 

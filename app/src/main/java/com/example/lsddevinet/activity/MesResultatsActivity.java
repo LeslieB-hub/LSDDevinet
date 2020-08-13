@@ -12,15 +12,20 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 
 import com.example.lsddevinet.R;
 import com.example.lsddevinet.ViewModel.CategorieViewModel;
+import com.example.lsddevinet.ViewModel.MotViewModel;
+import com.example.lsddevinet.activity.adapters.AdapterNiveau;
 import com.example.lsddevinet.activity.adapters.ResultatsAdapter;
 import com.example.lsddevinet.model.Categorie;
+import com.example.lsddevinet.model.Mot;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -41,6 +46,10 @@ public class MesResultatsActivity extends AppCompatActivity {
     PieDataSet pieDataSet;
     ArrayList pieEntries;
     ArrayList pieEntryLabels;
+    MotViewModel motVM;
+    List<Integer> progression = new ArrayList<>();
+    int pourcentageProgression = 0;
+    int nbBonnesReponses = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +69,33 @@ public class MesResultatsActivity extends AppCompatActivity {
         pieChart.getDescription().setEnabled(false);
         pieDataSet.setSliceSpace(5f);
 
+        motVM = ViewModelProviders.of(this).get(MotViewModel.class);
+
+        int idCat=0;
+        while (idCat<=7){
+            motVM.getMotByCategorie(idCat);
+            idCat++;
+            Log.i("Devinet", "idCat : " + idCat);
+        }
+        motVM.getObservateurMotByCategorie().observe(this, new Observer<List<Mot>>() {
+            @Override
+            public void onChanged(List<Mot> mots) {
+                if(mots.isEmpty())
+                    return;
+                pourcentageProgression = 0;
+                nbBonnesReponses = 0;
+                for (Mot mot:mots) {
+                    if(mot.getMot().equalsIgnoreCase(mot.getProposition())) {
+                        nbBonnesReponses++;
+                    }
+                }
+                Log.i("Devinet", "nbBonnesReponses : " + nbBonnesReponses);
+                pourcentageProgression = (nbBonnesReponses*100)/mots.size();
+                progression.add(pourcentageProgression);
+                Log.i("Devinet", "pourcentageProgression : " + pourcentageProgression);
+            }
+        });
+
 
         recyclerView = findViewById(R.id.recycler_view_resultats);
 
@@ -78,7 +114,7 @@ public class MesResultatsActivity extends AppCompatActivity {
         categorieVm.getAllCategories().observe(this, new Observer<List<Categorie>>() {
             @Override
             public void onChanged(List<Categorie> categories) {
-                resultatsAdapter = new ResultatsAdapter(categories);
+                resultatsAdapter = new ResultatsAdapter(categories, progression);
                 //lié l'adapter au recycleview
                 recyclerView.setAdapter(resultatsAdapter);
             }
