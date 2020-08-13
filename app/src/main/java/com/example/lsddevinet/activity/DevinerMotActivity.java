@@ -46,6 +46,7 @@ public class DevinerMotActivity extends AppCompatActivity {
     String lettre= new String();
     String motPropose = new String();
     MotViewModel motVM;
+    Button valider = null;
 
 
 
@@ -53,6 +54,8 @@ public class DevinerMotActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deviner_mot);
+
+        valider = findViewById(R.id.btn_valide);
 
        //Récupérer les boutons
         btn1 = findViewById(R.id.btn_1);
@@ -439,6 +442,7 @@ public class DevinerMotActivity extends AppCompatActivity {
             Toast.makeText(DevinerMotActivity.this, "PERDU !! Le mot était "+ mot, Toast.LENGTH_LONG).show();
         }
         Log.i("Devinet", "mot tiré " + motTire.toString());
+        valider.setEnabled(false);
     }
 
     public void onClickSuivant(View view) {

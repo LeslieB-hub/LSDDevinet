@@ -30,8 +30,10 @@
         <activity
             android:name=".activity.DetailResultatActivity"
             android:label="RESULTAT - DETAIL" />
-        <activity android:name=".activity.DevinerMotActivity" />
-        <activity android:name=".activity.MesResultatsActivity" />
+        <activity android:name=".activity.DevinerMotActivity"
+            android:label="PROPOSITION"/>
+        <activity android:name=".activity.MesResultatsActivity"
+            android:label="RESULTATS - GENERAL"/>
     </application>
 
 </manifest>
