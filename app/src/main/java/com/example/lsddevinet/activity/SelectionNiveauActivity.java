@@ -11,16 +11,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.lsddevinet.R;
 import com.example.lsddevinet.ViewModel.CategorieViewModel;
+import com.example.lsddevinet.ViewModel.MotViewModel;
 import com.example.lsddevinet.activity.adapters.AdapterNiveau;
 import com.example.lsddevinet.model.Categorie;
+import com.example.lsddevinet.model.Mot;
 
 import java.util.List;
 
@@ -28,6 +32,8 @@ public class SelectionNiveauActivity extends AppCompatActivity{
 
     RecyclerView recyclerView = null;
     ProgressBar progressBar = null;
+    CategorieViewModel categorieVm;
+    MotViewModel motVM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,8 @@ public class SelectionNiveauActivity extends AppCompatActivity{
         setContentView(R.layout.activity_selection_niveau);
 
         progressBar = findViewById(R.id.pb_progression);
+        //btnReinitialiser.findViewById(R.id.btn_reinitialiser);
+
 
         //récupérer le recycleview
         recyclerView = findViewById(R.id.recyclerview_niveau);
@@ -45,7 +53,7 @@ public class SelectionNiveauActivity extends AppCompatActivity{
         recyclerView.setLayoutManager(rvlm);
 
         //Récupérer la liste de catégorie
-        CategorieViewModel categorieVm = ViewModelProviders.of(this).get(CategorieViewModel.class);
+        categorieVm = ViewModelProviders.of(this).get(CategorieViewModel.class);
 
 
         categorieVm.getAllCategories().observe(this, new Observer<List<Categorie>>() {
@@ -55,7 +63,7 @@ public class SelectionNiveauActivity extends AppCompatActivity{
                 AdapterNiveau adapterNiveau = new AdapterNiveau(categories, new AdapterNiveau.OnClicSurItem<Categorie>() {
                     @Override
                     public void onInteraction(Categorie info) {
-                        Toast.makeText(SelectionNiveauActivity.this, "Catégorie"+ info, Toast.LENGTH_SHORT).show();
+                        Log.i("Devinet", "Catégorie : " + info);
                         Intent intentJouer = new Intent(SelectionNiveauActivity.this, DevinerMotActivity.class);
                         intentJouer.putExtra("Categorie", info);
                         startActivity(intentJouer);
@@ -66,27 +74,34 @@ public class SelectionNiveauActivity extends AppCompatActivity{
                 recyclerView.setAdapter(adapterNiveau);
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-
-
 
     }
 
-    public void onClickInitialiser(){
 
-    }
+//    public void onClickInitialiser(){
+//        //Récupérer la catégorie sélectionné
+//        Intent intent = getIntent();
+//        Categorie categorie = intent.getParcelableExtra("Categorie");
+//        int id = categorie.getId();
+//        Log.i("Devinet", "Catégorie : " + categorie);
+//
+//        //Effacer les mots proposées de la bdd
+//        //Récupérer la catégorie
+//        MotViewModel motVM = ViewModelProviders.of(this).get(MotViewModel.class);
+//        motVM.getMotByCategorie(id);
+//        motVM.getObservateurMotByCategorie().observe(this, new Observer<List<Mot>>() {
+//            @Override
+//            public void onChanged(List<Mot> mots) {
+//                for (Mot mot: mots) {
+//                    mot.setProposition("");
+//                }
+//            }
+//        });
+//
+//        Toast.makeText(SelectionNiveauActivity.this, "Le niveau "+ id +" a été réinitialisé. ", Toast.LENGTH_SHORT).show();
+//
+//    }
 
-/*    public void onClickProgression(CardView view){
-        View parentRow = (View) view.getParent();
-        RecyclerView rv = (RecyclerView) parentRow.getParent();
-        final int position = rv.getChildLayoutPosition(parentRow);
-        Toast.makeText(SelectionNiveauActivity.this," d "+ position, Toast.LENGTH_LONG).show();
-    }*/
 
     /**
      * Menu

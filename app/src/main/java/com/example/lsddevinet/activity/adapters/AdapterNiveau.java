@@ -1,16 +1,27 @@
 package com.example.lsddevinet.activity.adapters;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lsddevinet.R;
+import com.example.lsddevinet.ViewModel.MotViewModel;
+import com.example.lsddevinet.activity.SelectionNiveauActivity;
 import com.example.lsddevinet.model.Categorie;
+import com.example.lsddevinet.model.Mot;
 
 import java.util.List;
 
@@ -30,12 +41,6 @@ public class AdapterNiveau extends RecyclerView.Adapter<AdapterNiveau.ViewHolder
             tvNiveau = itemView.findViewById(R.id.tv_niveau);
             progressBar = itemView.findViewById(R.id.pb_progression);
             itemView.setOnClickListener(this);
-            progressBar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    action.onInteraction(categories.get(ViewHolder.this.getAdapterPosition()));
-                }
-            });
 
         }
 

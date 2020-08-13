@@ -191,7 +191,6 @@ public class DevinerMotActivity extends AppCompatActivity {
                 setTitle("NIVEAU "+ id + " - MOT N°"+nbRandom);
 
                 Log.i("Devinet", "Nombre aléatoire : " + nbRandom + " taille de la liste : "+mots.size());
-                Toast.makeText(DevinerMotActivity.this, "Test" + motTire + nbRandom, Toast.LENGTH_LONG).show();
 
             }
         });
@@ -424,7 +423,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickValider(View view) {
         //mettre les lettres dans le mot propose
-
         for(int i=0; i < 12; i++){
             motPropose += editTexts.get(i).getText();
         }
@@ -433,18 +431,18 @@ public class DevinerMotActivity extends AppCompatActivity {
         //mettre la proposition dans la bdd
         motTire.setProposition(motPropose);
         motVM.update(motTire);
-        //Verifier le mot proposé avec le mot tiré
 
+        //Verifier le mot proposé avec le mot tiré
         if (mot.equals(motPropose)){
-            Toast.makeText(DevinerMotActivity.this, "Gagné " + mot, Toast.LENGTH_LONG).show();
+            Toast.makeText(DevinerMotActivity.this, "GAGNE !! ", Toast.LENGTH_LONG).show();
         }else {
             Toast.makeText(DevinerMotActivity.this, "PERDU !! Le mot était "+ mot, Toast.LENGTH_LONG).show();
         }
-
         Log.i("Devinet", "mot tiré " + motTire.toString());
     }
 
-
     public void onClickSuivant(View view) {
+        finish();
+        startActivity(getIntent());
     }
 }
