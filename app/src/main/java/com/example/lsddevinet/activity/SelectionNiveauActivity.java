@@ -26,6 +26,7 @@ import com.example.lsddevinet.activity.adapters.AdapterNiveau;
 import com.example.lsddevinet.model.Categorie;
 import com.example.lsddevinet.model.Mot;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SelectionNiveauActivity extends AppCompatActivity{
@@ -34,6 +35,10 @@ public class SelectionNiveauActivity extends AppCompatActivity{
     ProgressBar progressBar = null;
     CategorieViewModel categorieVm;
     MotViewModel motVM;
+    AdapterNiveau adapterNiveau;
+    List<Integer> progression = new ArrayList<>();
+    int pourcentageProgression = 0;
+    int nbBonnesReponses = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +46,33 @@ public class SelectionNiveauActivity extends AppCompatActivity{
         setContentView(R.layout.activity_selection_niveau);
 
         progressBar = findViewById(R.id.pb_progression);
-        //btnReinitialiser.findViewById(R.id.btn_reinitialiser);
 
+
+        motVM = ViewModelProviders.of(this).get(MotViewModel.class);
+
+        motVM.getMotByCategorie(1);
+        motVM.getObservateurMotByCategorie().observe(this, new Observer<List<Mot>>() {
+            @Override
+            public void onChanged(List<Mot> mots) {
+                for (Mot mot:mots) {
+                        if(mot.getMot().equalsIgnoreCase(mot.getProposition())) {
+                            nbBonnesReponses++;
+                        }
+                    }
+                Log.i("Devinet", "nbBonnesReponses : " + nbBonnesReponses);
+                pourcentageProgression = (nbBonnesReponses*100)/mots.size();
+                Log.i("Devinet", "pourcentageProgression : " + pourcentageProgression);
+                progression.add(100);
+            }
+        });
+
+
+        progression.add(20);
+        progression.add(30);
+        progression.add(40);
+        progression.add(50);
+        progression.add(60);
+        progression.add(70);
 
         //récupérer le recycleview
         recyclerView = findViewById(R.id.recyclerview_niveau);
@@ -60,7 +90,7 @@ public class SelectionNiveauActivity extends AppCompatActivity{
             @Override
             public void onChanged(List<Categorie> categories) {
                 //création de l'adapter
-                AdapterNiveau adapterNiveau = new AdapterNiveau(categories, new AdapterNiveau.OnClicSurItem<Categorie>() {
+                adapterNiveau = new AdapterNiveau(categories, new AdapterNiveau.OnClicSurItem<Categorie>() {
                     @Override
                     public void onInteraction(Categorie info) {
                         Log.i("Devinet", "Catégorie : " + info);
@@ -68,39 +98,35 @@ public class SelectionNiveauActivity extends AppCompatActivity{
                         intentJouer.putExtra("Categorie", info);
                         startActivity(intentJouer);
                     }
-                });
+                }, progression);
 
                 //lié l'adapter au recycleview
                 recyclerView.setAdapter(adapterNiveau);
+
+                adapterNiveau.setInterfaceClickNiveau(new AdapterNiveau.IOnClickNiveau() {
+                    @Override
+                    public void onClickReinitialise(Categorie categorie) {
+                        //récupérer les mots de la catégorie
+                        motVM.getMotByCategorie(categorie.getId());
+                        motVM.getObservateurMotByCategorie().observe(SelectionNiveauActivity.this, new Observer<List<Mot>>() {
+                            @Override
+                            public void onChanged(List<Mot> mots) {
+                                //mettre les mots proposés à null
+                                for (Mot mot: mots) {
+                                    mot.setProposition("");
+                                    //insérer dans la bdd
+                                    motVM.update(mot);
+                                }
+                                Log.i("Devinet", "mot mis à jour : '" + mots.size()+"' ");
+                            }
+                        });
+                        Toast.makeText(SelectionNiveauActivity.this, "Le niveau "+ categorie.getId() +" a été réinitialisé. ", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
     }
-
-
-//    public void onClickInitialiser(){
-//        //Récupérer la catégorie sélectionné
-//        Intent intent = getIntent();
-//        Categorie categorie = intent.getParcelableExtra("Categorie");
-//        int id = categorie.getId();
-//        Log.i("Devinet", "Catégorie : " + categorie);
-//
-//        //Effacer les mots proposées de la bdd
-//        //Récupérer la catégorie
-//        MotViewModel motVM = ViewModelProviders.of(this).get(MotViewModel.class);
-//        motVM.getMotByCategorie(id);
-//        motVM.getObservateurMotByCategorie().observe(this, new Observer<List<Mot>>() {
-//            @Override
-//            public void onChanged(List<Mot> mots) {
-//                for (Mot mot: mots) {
-//                    mot.setProposition("");
-//                }
-//            }
-//        });
-//
-//        Toast.makeText(SelectionNiveauActivity.this, "Le niveau "+ id +" a été réinitialisé. ", Toast.LENGTH_SHORT).show();
-//
-//    }
 
 
     /**
