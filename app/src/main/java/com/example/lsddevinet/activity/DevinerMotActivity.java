@@ -424,7 +424,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         motVM.update(motTire);
 
         //Verifier le mot proposé avec le mot tiré
-        if (mot.equals(motPropose)){
+        if (mot.equalsIgnoreCase(motPropose)){
             Toast.makeText(DevinerMotActivity.this, "GAGNE !! ", Toast.LENGTH_LONG).show();
         }else {
             Toast.makeText(DevinerMotActivity.this, "PERDU !! Le mot était "+ mot, Toast.LENGTH_LONG).show();

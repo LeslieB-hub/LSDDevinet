@@ -85,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickQuitter(View view) {
-        Intent intentDetailResultats = new Intent(this, DetailResultatActivity.class);
-        startActivity(intentDetailResultats);
     }
 
     /**
