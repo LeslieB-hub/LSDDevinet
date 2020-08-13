@@ -2,13 +2,16 @@ package com.example.lsddevinet.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.lsddevinet.R;
 import com.example.lsddevinet.ViewModel.MotViewModel;
@@ -20,6 +23,8 @@ import com.example.lsddevinet.repository.IMotBddRepository;
 import com.example.lsddevinet.repository.MotBddRepository;
 import com.facebook.stetho.Stetho;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -30,17 +35,48 @@ public class MainActivity extends AppCompatActivity {
 
         MotViewModel motVM = ViewModelProviders.of(this).get(MotViewModel.class);
 
-//        ICategorieRepository repoCategorie = new CategorieBddRepository(this);
-//        IMotBddRepository repoMot = new MotBddRepository(this);
-//        Categorie categorie = new Categorie(4,"4 lettres");
-//        repoCategorie.insert(categorie);
-//        repoMot.insert(new Mot(0, "kiwi.jpeg", "kiwi", "", 4 ));
+// ------je fournie les idCat "à la main" pour recuperer les listes de mots par catégorie------------------
+
+
+        for(int idCat = 4; idCat<=10; idCat++){
+
+            motVM.getObservateurMotByCategorie();
+            motVM.getMotByCategorie(idCat);
+            motVM.getObservateurMotByCategorie().observe(MainActivity.this, new Observer<List<Mot>>() {
+                @Override
+                public void onChanged(List<Mot> mots) {
+//                    int idCategorie =mots.get(0).getIdCategorie();
+//                    int nbBonnesReponses =0;
+//                    int progression = 0;
+                    int size = mots.size();
+                    Toast.makeText(MainActivity.this, "size" +size, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this, "id "+idCategorie+ "size" +size, Toast.LENGTH_SHORT).show();
+//                    for (Mot mot:mots) {
+//                        if(mot.getMot().equalsIgnoreCase(mot.getProposition())) {
+//                            nbBonnesReponses++;
+//                        }
+//                    }
+//                    progression = (nbBonnesReponses*100)/size;
+//                    SharedPreferences sp = getSharedPreferences("ProgressionId" +idCategorie, MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = sp.edit();
+//                    editor.putInt("progression", progression);
+//                    editor.commit();
+
+
+                }
+            });
+
+        }
+
+
     }
+
 
     public void onClickJouer(View view) {
         Intent intentNiveau = new Intent(this, SelectionNiveauActivity.class);
         startActivity(intentNiveau);
     }
+
 
     public void onClickResultat(View view) {
         Intent intentResultats = new Intent(this, MesResultatsActivity.class);
