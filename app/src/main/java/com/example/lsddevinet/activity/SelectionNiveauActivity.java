@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -28,6 +29,7 @@ import com.example.lsddevinet.model.Mot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.prefs.Preferences;
 
 public class SelectionNiveauActivity extends AppCompatActivity{
 
@@ -50,29 +52,31 @@ public class SelectionNiveauActivity extends AppCompatActivity{
 
         motVM = ViewModelProviders.of(this).get(MotViewModel.class);
 
-        motVM.getMotByCategorie(1);
+        int idCat=0;
+        while (idCat<=7){
+            idCat++;
+            motVM.getMotByCategorie(idCat);
+            Log.i("Devinet", "idCat : " + idCat);
+        }
         motVM.getObservateurMotByCategorie().observe(this, new Observer<List<Mot>>() {
             @Override
             public void onChanged(List<Mot> mots) {
+                if(mots.isEmpty())
+                    return;
+                pourcentageProgression = 0;
+                nbBonnesReponses = 0;
                 for (Mot mot:mots) {
-                        if(mot.getMot().equalsIgnoreCase(mot.getProposition())) {
-                            nbBonnesReponses++;
-                        }
+                    if(mot.getMot().equalsIgnoreCase(mot.getProposition())) {
+                        nbBonnesReponses++;
                     }
+                }
                 Log.i("Devinet", "nbBonnesReponses : " + nbBonnesReponses);
                 pourcentageProgression = (nbBonnesReponses*100)/mots.size();
+                progression.add(pourcentageProgression);
                 Log.i("Devinet", "pourcentageProgression : " + pourcentageProgression);
-                progression.add(100);
             }
         });
 
-
-        progression.add(20);
-        progression.add(30);
-        progression.add(40);
-        progression.add(50);
-        progression.add(60);
-        progression.add(70);
 
         //récupérer le recycleview
         recyclerView = findViewById(R.id.recyclerview_niveau);
@@ -121,6 +125,8 @@ public class SelectionNiveauActivity extends AppCompatActivity{
                             }
                         });
                         Toast.makeText(SelectionNiveauActivity.this, "Le niveau "+ categorie.getId() +" a été réinitialisé. ", Toast.LENGTH_SHORT).show();
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
             }
