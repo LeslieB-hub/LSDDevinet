@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +20,14 @@ import com.example.lsddevinet.R;
 import com.example.lsddevinet.ViewModel.CategorieViewModel;
 import com.example.lsddevinet.activity.adapters.ResultatsAdapter;
 import com.example.lsddevinet.model.Categorie;
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MesResultatsActivity extends AppCompatActivity {
@@ -27,11 +35,30 @@ public class MesResultatsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter resultatsAdapter;
+    PieChart pieChart;
+    PieData pieData;
+    PieDataSet pieDataSet;
+    ArrayList pieEntries;
+    ArrayList pieEntryLabels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mes_resultats);
+
+        pieChart = findViewById(R.id.pieChart);
+        getEntries();
+        pieDataSet = new PieDataSet(pieEntries, "");
+        pieData = new PieData(pieDataSet);
+        pieChart.setData(pieData);
+        pieDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+        pieDataSet.setSliceSpace(2f);
+        pieDataSet.setValueTextColor(Color.BLACK);
+        pieDataSet.setValueTextSize(10f);
+        pieChart.setEntryLabelColor(Color.BLACK);
+        pieChart.getDescription().setEnabled(false);
+        pieDataSet.setSliceSpace(5f);
+
 
         recyclerView = findViewById(R.id.recycler_view_resultats);
 
@@ -56,8 +83,16 @@ public class MesResultatsActivity extends AppCompatActivity {
             }
             });
 
+    }
+
+    private void getEntries() {
+        pieEntries = new ArrayList<>();
+        pieEntries.add(new PieEntry(2f, "Mot trouvé"));
+        pieEntries.add(new PieEntry(4f, "Mot non trouvé"));
+
 
     }
+
 
     public void OnClickDetails(View view) {
         Intent intentDetails = new Intent(this, DetailResultatActivity.class);
@@ -71,7 +106,6 @@ public class MesResultatsActivity extends AppCompatActivity {
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //on décompresse le xml du menu
         getMenuInflater().inflate(R.menu.mon_menu, menu);
         menu.findItem(R.id.action_Accueil).setVisible(false);
         return true;

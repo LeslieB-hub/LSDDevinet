@@ -88,7 +88,6 @@ public class DetailResultatActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-
         }
     }
 }
