@@ -95,25 +95,25 @@ public class MainActivity extends AppCompatActivity {
                     editor.putInt(CLE_PROGRESSION, progression);
                     editor.commit();
                 ///RECUPERER TABLEAU DE idCat//////////////
-                int[] idCatArray = {};
-                                      boolean arrayContains = false;
-
-                                for (Mot mot:mots) {
-
-                                    idCat=mot.getIdCategorie();
-                                    for(int i =0; i<idCatArray.length; i++){
-                                        if(idCat==idCatArray[i]){
-                                            arrayContains = true;
-                                            break;
-                                        }
-                                    }
-                                    if(!arrayContains){
-                                        int length = idCatArray.length;
-                                        idCatArray[length] = idCat;
-                                    }
-
-                                }
-                                Toast.makeText(MainActivity.this, "length" + idCatArray.length , Toast.LENGTH_SHORT).show();
+//                int[] idCatArray = {};
+//                                      boolean arrayContains = false;
+//
+//                                for (Mot mot:mots) {
+//
+//                                    idCat=mot.getIdCategorie();
+//                                    for(int i =0; i<idCatArray.length; i++){
+//                                        if(idCat==idCatArray[i]){
+//                                            arrayContains = true;
+//                                            break;
+//                                        }
+//                                    }
+//                                    if(!arrayContains){
+//                                        int length = idCatArray.length;
+//                                        idCatArray[length] = idCat;
+//                                    }
+//
+//                                }
+//                                Toast.makeText(MainActivity.this, "length" + idCatArray.length , Toast.LENGTH_SHORT).show();
                  ///////////////////////////////////////////
             }
 
