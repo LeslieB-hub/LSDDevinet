@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 
@@ -14,8 +15,9 @@ import androidx.room.PrimaryKey;
         entity = Categorie.class,
         parentColumns = "id",
         childColumns = "idCategorie",
-        onDelete = ForeignKey.NO_ACTION
-        ))
+        onDelete = ForeignKey.NO_ACTION),
+        indices = { @Index("idCategorie") }
+        )
 public class Mot implements Parcelable{
 
     @PrimaryKey(autoGenerate = true)
