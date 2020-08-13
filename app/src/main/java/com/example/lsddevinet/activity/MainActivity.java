@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.lsddevinet.R;
 import com.example.lsddevinet.ViewModel.MotViewModel;
+import com.example.lsddevinet.activity.adapters.AdapterResultatDetail;
 import com.example.lsddevinet.model.Categorie;
 import com.example.lsddevinet.model.Mot;
 import com.example.lsddevinet.repository.CategorieBddRepository;
@@ -23,9 +24,12 @@ import com.example.lsddevinet.repository.IMotBddRepository;
 import com.example.lsddevinet.repository.MotBddRepository;
 import com.facebook.stetho.Stetho;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String CLE_PROGRESSION = "progression";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,35 +42,83 @@ public class MainActivity extends AppCompatActivity {
 // ------je fournie les idCat "à la main" pour recuperer les listes de mots par catégorie------------------
 
 
-        for(int idCat = 4; idCat<=10; idCat++){
+//        for(int idCat = 1; idCat<=7; idCat++){
+//
+//            motVM.getObservateurMotByCategorie();
+//            motVM.getMotByCategorie(idCat);
+//            motVM.getObservateurMotByCategorie().observe(MainActivity.this, new Observer<List<Mot>>() {
+//                @Override
+//                public void onChanged(List<Mot> mots) {
+////                   int idCategorie =mots.get(0).getIdCategorie();
+////                    int nbBonnesReponses =0;
+////                    int progression = 0;
+//                    int size = mots.size();
+//                    Toast.makeText(MainActivity.this, "size" +size, Toast.LENGTH_SHORT).show();
+////                   Toast.makeText(MainActivity.this, "id "+idCategorie+ "size" +size, Toast.LENGTH_LONG).show();
+////                    for (Mot mot:mots) {
+////                        if(mot.getMot().equalsIgnoreCase(mot.getProposition())) {
+////                            nbBonnesReponses++;
+////                        }
+////                    }
+////                    progression = (nbBonnesReponses*100)/size;
+////                    SharedPreferences sp = getSharedPreferences("ProgressionId" +idCategorie, MODE_PRIVATE);
+////                    SharedPreferences.Editor editor = sp.edit();
+////                    editor.putInt("progression", progression);
+////                    editor.commit();
+//
+//
+//                }
+//            });
+//
+//        }
+//
 
-            motVM.getObservateurMotByCategorie();
-            motVM.getMotByCategorie(idCat);
-            motVM.getObservateurMotByCategorie().observe(MainActivity.this, new Observer<List<Mot>>() {
-                @Override
-                public void onChanged(List<Mot> mots) {
-//                    int idCategorie =mots.get(0).getIdCategorie();
-//                    int nbBonnesReponses =0;
-//                    int progression = 0;
-                    int size = mots.size();
-                    Toast.makeText(MainActivity.this, "size" +size, Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(MainActivity.this, "id "+idCategorie+ "size" +size, Toast.LENGTH_SHORT).show();
-//                    for (Mot mot:mots) {
-//                        if(mot.getMot().equalsIgnoreCase(mot.getProposition())) {
-//                            nbBonnesReponses++;
+        ///CALCULER LA PROGESSION TOTALE ET METTRE DANS SHARE PREFERENCES
+        motVM.getObservateurAllMots().observe(this, new Observer<List<Mot>>() {
+            @Override
+            public void onChanged(List<Mot> mots) {
+                int size = mots.size();
+                Toast.makeText(MainActivity.this, "size" +size, Toast.LENGTH_SHORT).show();
+                int idCat = 0;
+                int nbBonnesReponses = 0;
+                int progression = 0;
+
+                for(Mot mot: mots){
+                    if(mot.getMot().equalsIgnoreCase(mot.getProposition())) {
+                            nbBonnesReponses++;
+                        }
+                }
+
+                    progression = (nbBonnesReponses*100)/size;
+                    SharedPreferences sp = getSharedPreferences("PROGRESSION TOTALE", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putInt(CLE_PROGRESSION, progression);
+                    editor.commit();
+                ///RECUPERER TABLEAU DE idCat//////////////
+//                int[] idCatArray = {};
+//                      boolean arrayContains = false;
+//
+//                for (Mot mot:mots) {
+//
+//                    idCat=mot.getIdCategorie();
+//                    for(int i =0; i<=idCatArray.length; i++){
+//                        if(idCat==idCatArray[i]){
+//                            arrayContains = true;
+//                            break;
 //                        }
 //                    }
-//                    progression = (nbBonnesReponses*100)/size;
-//                    SharedPreferences sp = getSharedPreferences("ProgressionId" +idCategorie, MODE_PRIVATE);
-//                    SharedPreferences.Editor editor = sp.edit();
-//                    editor.putInt("progression", progression);
-//                    editor.commit();
+//                    if(!arrayContains){
+//                        int length = idCatArray.length;
+//                        idCatArray[length] = idCat;
+//                    }
+//
+//                }
+//                Toast.makeText(MainActivity.this, "length" + idCatArray.length , Toast.LENGTH_SHORT).show();
+                ///////////////////////////////////////////
+            }
 
+        });
 
-                }
-            });
-
-        }
 
 
     }
