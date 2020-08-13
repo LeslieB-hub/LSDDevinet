@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         MotViewModel motVM = ViewModelProviders.of(this).get(MotViewModel.class);
 
-// ------je fournie les idCat "à la main" pour recuperer les listes de mots par catégorie------------------
+
 
         ///CALCULER LA PROGESSION TOTALE ET METTRE DANS SHARE PREFERENCES
         motVM.getObservateurAllMots().observe(this, new Observer<List<Mot>>() {
