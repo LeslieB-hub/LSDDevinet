@@ -246,7 +246,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn1(View view) {
         lettre = btn1.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
@@ -261,7 +260,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn8(View view) {
         lettre = btn8.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
@@ -275,7 +273,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn3(View view) {
         lettre = btn3.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
@@ -290,7 +287,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn10(View view) {
         lettre = btn10.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
@@ -305,7 +301,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn5(View view) {
         lettre = btn5.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
@@ -320,7 +315,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn12(View view) {
         lettre = btn12.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
@@ -334,7 +328,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn7(View view) {
         lettre = btn7.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
@@ -348,7 +341,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn2(View view) {
         lettre = btn2.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
@@ -362,7 +354,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn9(View view) {
         lettre = btn9.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
@@ -376,7 +367,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn4(View view) {
         lettre = btn4.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
@@ -390,7 +380,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn11(View view) {
         lettre = btn11.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
@@ -404,7 +393,6 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickBtn6(View view) {
         lettre = btn6.getText().toString();
-        Toast.makeText(DevinerMotActivity.this, "lettre tapée " + lettre, Toast.LENGTH_LONG).show();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
         for(int i=0; i < 12; i++){
