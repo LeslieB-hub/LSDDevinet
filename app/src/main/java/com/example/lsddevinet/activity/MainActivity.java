@@ -29,8 +29,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String CLE_PROGRESSION = "progression";
-
+    public static final String CLE_PROGRESSION = "progression";
+    public static final String FICHIER_PROGRESSION_TOTALE = "progression_totale";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Mot> mots) {
                 int size = mots.size();
-                Toast.makeText(MainActivity.this, "size" +size, Toast.LENGTH_SHORT).show();
+
                 int idCat = 0;
                 int nbBonnesReponses = 0;
                 int progression = 0;
@@ -90,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                     progression = (nbBonnesReponses*100)/size;
-                    SharedPreferences sp = getSharedPreferences("PROGRESSION TOTALE", MODE_PRIVATE);
+                    Toast.makeText(MainActivity.this, "progression " +progression, Toast.LENGTH_SHORT).show();
+                    SharedPreferences sp = getSharedPreferences(FICHIER_PROGRESSION_TOTALE, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putInt(CLE_PROGRESSION, progression);
                     editor.commit();

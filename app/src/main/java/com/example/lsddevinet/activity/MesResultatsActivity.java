@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -85,11 +86,18 @@ public class MesResultatsActivity extends AppCompatActivity {
 
     }
 
+    //Pour definir les valeurs de camambert : progression totale
     private void getEntries() {
-        pieEntries = new ArrayList<>();
-        pieEntries.add(new PieEntry(2f, "Mot trouvé"));
-        pieEntries.add(new PieEntry(4f, "Mot non trouvé"));
 
+        int progressionTotale;
+        int motsPasTrouve;
+        SharedPreferences sp = getSharedPreferences(MainActivity.FICHIER_PROGRESSION_TOTALE, MODE_PRIVATE);
+        progressionTotale = sp.getInt(MainActivity.CLE_PROGRESSION, 0);
+        motsPasTrouve = 100 - progressionTotale;
+
+        pieEntries = new ArrayList<>();
+        pieEntries.add(new PieEntry(progressionTotale, "Mot trouvé"));
+        pieEntries.add(new PieEntry(motsPasTrouve, "Mot non trouvé"));
 
     }
 
