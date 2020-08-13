@@ -90,32 +90,31 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                     progression = (nbBonnesReponses*100)/size;
-                    Toast.makeText(MainActivity.this, "progression " +progression, Toast.LENGTH_SHORT).show();
                     SharedPreferences sp = getSharedPreferences(FICHIER_PROGRESSION_TOTALE, MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putInt(CLE_PROGRESSION, progression);
                     editor.commit();
                 ///RECUPERER TABLEAU DE idCat//////////////
-//                int[] idCatArray = {};
-//                      boolean arrayContains = false;
-//
-//                for (Mot mot:mots) {
-//
-//                    idCat=mot.getIdCategorie();
-//                    for(int i =0; i<=idCatArray.length; i++){
-//                        if(idCat==idCatArray[i]){
-//                            arrayContains = true;
-//                            break;
-//                        }
-//                    }
-//                    if(!arrayContains){
-//                        int length = idCatArray.length;
-//                        idCatArray[length] = idCat;
-//                    }
-//
-//                }
-//                Toast.makeText(MainActivity.this, "length" + idCatArray.length , Toast.LENGTH_SHORT).show();
-                ///////////////////////////////////////////
+                int[] idCatArray = {};
+                                      boolean arrayContains = false;
+
+                                for (Mot mot:mots) {
+
+                                    idCat=mot.getIdCategorie();
+                                    for(int i =0; i<idCatArray.length; i++){
+                                        if(idCat==idCatArray[i]){
+                                            arrayContains = true;
+                                            break;
+                                        }
+                                    }
+                                    if(!arrayContains){
+                                        int length = idCatArray.length;
+                                        idCatArray[length] = idCat;
+                                    }
+
+                                }
+                                Toast.makeText(MainActivity.this, "length" + idCatArray.length , Toast.LENGTH_SHORT).show();
+                 ///////////////////////////////////////////
             }
 
         });
