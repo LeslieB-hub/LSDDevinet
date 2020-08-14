@@ -49,6 +49,7 @@
             android:layout_height="wrap_content"
             android:text="Réinitialiser"
             android:layout_marginLeft="255dp"
+            android:background="@drawable/shadow_button_domi"
 
             />
 

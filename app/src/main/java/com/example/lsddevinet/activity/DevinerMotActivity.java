@@ -41,7 +41,7 @@ public class DevinerMotActivity extends AppCompatActivity {
     String mot = null;
     ArrayList<Button> buttons = new ArrayList<Button>();
     EditText lettreTape1, lettreTape2, lettreTape3, lettreTape4, lettreTape5, lettreTape6, lettreTape7,
-            lettreTape8, lettreTape9,lettreTape10, lettreTape11, lettreTape12 = null;
+            lettreTape8, lettreTape9,lettreTape10, lettreTape11 = null;
     ArrayList<EditText> editTexts = new ArrayList<EditText>();
     String lettre= new String();
     String motPropose = new String();
@@ -69,7 +69,6 @@ public class DevinerMotActivity extends AppCompatActivity {
         btn9 = findViewById(R.id.btn_9);
         btn10 = findViewById(R.id.btn_10);
         btn11 = findViewById(R.id.btn_11);
-        btn12 = findViewById(R.id.btn_12);
         //mettre les boutons dans une liste
         buttons.add(btn1);
         buttons.add(btn2);
@@ -82,7 +81,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         buttons.add(btn9);
         buttons.add(btn10);
         buttons.add(btn11);
-        buttons.add(btn12);
+
 
         //Récupérer les editText
         lettreTape1 = findViewById(R.id.et_lettre1);
@@ -96,7 +95,6 @@ public class DevinerMotActivity extends AppCompatActivity {
         lettreTape9 = findViewById(R.id.et_lettre9);
         lettreTape10 = findViewById(R.id.et_lettre10);
         lettreTape11 = findViewById(R.id.et_lettre11);
-        lettreTape12 = findViewById(R.id.et_lettre12);
         //mettre les editText dans une liste
         editTexts.add(lettreTape1);
         editTexts.add(lettreTape2);
@@ -109,7 +107,6 @@ public class DevinerMotActivity extends AppCompatActivity {
         editTexts.add(lettreTape9);
         editTexts.add(lettreTape10);
         editTexts.add(lettreTape11);
-        editTexts.add(lettreTape12);
 
         Intent intent = getIntent();
         Categorie categorie = intent.getParcelableExtra("Categorie");
@@ -248,7 +245,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         lettre = btn1.getText().toString();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
             if (editTexts.get(i).getText().toString().isEmpty()){
                 editTexts.get(i).setText(lettre);
                 break;
@@ -262,7 +259,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         lettre = btn8.getText().toString();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
             if (editTexts.get(i).getText().toString().isEmpty()){
                 editTexts.get(i).setText(lettre);
                 break;
@@ -275,7 +272,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         lettre = btn3.getText().toString();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
             if (editTexts.get(i).getText().toString().isEmpty()){
                 editTexts.get(i).setText(lettre);
                 break;
@@ -289,7 +286,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         lettre = btn10.getText().toString();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
             if (editTexts.get(i).getText().toString().isEmpty()){
                 editTexts.get(i).setText(lettre);
                 break;
@@ -303,7 +300,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         lettre = btn5.getText().toString();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
             if (editTexts.get(i).getText().toString().isEmpty()){
                 editTexts.get(i).setText(lettre);
                 break;
@@ -330,7 +327,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         lettre = btn7.getText().toString();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
             if (editTexts.get(i).getText().toString().isEmpty()){
                 editTexts.get(i).setText(lettre);
                 break;
@@ -343,7 +340,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         lettre = btn2.getText().toString();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
             if (editTexts.get(i).getText().toString().isEmpty()){
                 editTexts.get(i).setText(lettre);
             break;
@@ -356,7 +353,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         lettre = btn9.getText().toString();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
             if (editTexts.get(i).getText().toString().isEmpty()){
                 editTexts.get(i).setText(lettre);
                 break;
@@ -369,7 +366,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         lettre = btn4.getText().toString();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
             if (editTexts.get(i).getText().toString().isEmpty()){
                 editTexts.get(i).setText(lettre);
                 break;
@@ -395,7 +392,7 @@ public class DevinerMotActivity extends AppCompatActivity {
         lettre = btn6.getText().toString();
         Log.i("Shop", "lettre tapée " + lettre);
         //mettre la lettre dans le editText et dans mot proposé
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
             if (editTexts.get(i).getText().toString().isEmpty()){
                 editTexts.get(i).setText(lettre);
                 break;
@@ -405,7 +402,7 @@ public class DevinerMotActivity extends AppCompatActivity {
     }
 
     public void onClickClearEditTexts(View view) {
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
                 editTexts.get(i).setText("");
                 buttons.get(i).setEnabled(true);
             }
@@ -414,7 +411,7 @@ public class DevinerMotActivity extends AppCompatActivity {
 
     public void onClickValider(View view) {
         //mettre les lettres dans le mot propose
-        for(int i=0; i < 12; i++){
+        for(int i=0; i < 11; i++){
             motPropose += editTexts.get(i).getText();
         }
         motPropose = motPropose.trim();

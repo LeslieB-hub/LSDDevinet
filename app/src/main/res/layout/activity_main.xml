@@ -24,11 +24,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Titre"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="60dp"
         android:drawableTop="@drawable/ic_action_jouer"
         android:text="Jouer"
         android:textStyle="bold"
-        android:onClick="onClickJouer"/>
+        android:onClick="onClickJouer"
+        android:layout_gravity="center"
+        android:background="@drawable/shadow_button_domi"
+
+        />
 
     <Button
         android:id="@+id/btn_Resultat"
@@ -37,11 +41,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Titre"
         android:layout_marginTop="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginRight="60dp"
         android:drawableTop="@drawable/ic_baseline_bar_chart_24"
         android:text="Mes résultats"
         android:textStyle="bold"
-        android:onClick="onClickResultat"/>
+        android:onClick="onClickResultat"
+        android:layout_gravity="center"
+        android:background="@drawable/shadow_button_domi"/>
 
     <Button
         android:id="@+id/btn_Proposition"
@@ -50,11 +56,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Jouer"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="60dp"
         android:drawableTop="@drawable/ic_baseline_create_24"
         android:text="Proposer"
         android:textStyle="bold"
-        android:onClick="onClickProposition"/>
+        android:onClick="onClickProposition"
+        android:layout_gravity="center"
+        android:background="@drawable/shadow_button_domi"/>
 
     <Button
         android:id="@+id/btn_Quitter"
@@ -63,11 +71,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_Resultat"
         android:layout_marginTop="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginRight="60dp"
         android:drawableTop="@drawable/ic_baseline_exit_to_app_24"
         android:text="Quitter"
         android:textStyle="bold"
-        android:onClick="onClickQuitter"/>
+        android:onClick="onClickQuitter"
+        android:layout_gravity="center"
+        android:background="@drawable/shadow_button_domi"/>
 
 
 
