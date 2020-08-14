@@ -49,9 +49,7 @@ public class SelectionNiveauActivity extends AppCompatActivity{
 
         progressBar = findViewById(R.id.pb_progression);
 
-
         motVM = ViewModelProviders.of(this).get(MotViewModel.class);
-
         int idCat=0;
         while (idCat<=7){
             idCat++;
@@ -88,8 +86,6 @@ public class SelectionNiveauActivity extends AppCompatActivity{
 
         //Récupérer la liste de catégorie
         categorieVm = ViewModelProviders.of(this).get(CategorieViewModel.class);
-
-
         categorieVm.getAllCategories().observe(this, new Observer<List<Categorie>>() {
             @Override
             public void onChanged(List<Categorie> categories) {
@@ -103,9 +99,9 @@ public class SelectionNiveauActivity extends AppCompatActivity{
                         startActivity(intentJouer);
                     }
                 }, progression);
-
                 //lié l'adapter au recycleview
                 recyclerView.setAdapter(adapterNiveau);
+
 
                 adapterNiveau.setInterfaceClickNiveau(new AdapterNiveau.IOnClickNiveau() {
                     @Override
@@ -124,7 +120,7 @@ public class SelectionNiveauActivity extends AppCompatActivity{
                                 Log.i("Devinet", "mot mis à jour : '" + mots.size()+"' ");
                             }
                         });
-                        Toast.makeText(SelectionNiveauActivity.this, "Le niveau "+ categorie.getId() +" a été réinitialisé. ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SelectionNiveauActivity.this, "Le niveau "+ categorie.getId() +" a été réinitialisé.", Toast.LENGTH_SHORT).show();
                         finish();
                         startActivity(getIntent());
                     }
